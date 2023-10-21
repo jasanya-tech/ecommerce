@@ -1,31 +1,9 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-    <link rel="icon" href="{{ asset(env('APP_COMPANY_LOGO')) }}" type="image/x-icon" />
-
-    <link rel="stylesheet" href="/assets/customer/auth/fonts/icomoon/style.css">
-
-    <link rel="stylesheet" href="/assets/customer/auth/css/owl.carousel.min.css">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/assets/customer/auth/css/bootstrap.min.css">
-
-    <!-- Style -->
-    <link rel="stylesheet" href="/assets/customer/auth/css/style.css">
-
-    <title>{{ env('APP_COMPANY') }}</title>
-</head>
-
-<body>
-    <div class="content">
+@extends('customer.main')
+@section('containers')
+    <div class="content pt-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-6 contents">
+                <div class="col-md-6 contents py-5 px-5 mt-5 rounded">
                     <div class="row justify-content-center">
                         <div class="col-md-12">
                             <div class="form-block">
@@ -46,8 +24,7 @@
                                     </div>
                                     <div class="form-group last mb-4">
                                         <label for="password">password</label>
-                                        <input type="password" class="form-control" id="password" name="password"
-                                            required>
+                                        <input type="password" class="form-control" id="password" name="password" required>
                                     </div>
 
 
@@ -65,10 +42,4 @@
             </div>
         </div>
     </div>
-    <script src="/assets/customer/auth/js/jquery-3.3.1.min.js"></script>
-    <script src="/assets/customer/auth/js/popper.min.js"></script>
-    <script src="/assets/customer/auth/js/bootstrap.min.js"></script>
-    <script src="/assets/customer/auth/js/main.js"></script>
-</body>
-
-</html>
+@endsection

@@ -209,6 +209,9 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'GlobalHelper' => \App\Helpers\GlobalHelper::class,
+        'FileHelper' => \App\Helpers\FileHelper::class,
+        'Image' => Intervention\Image\Facades\Image::class
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

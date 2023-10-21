@@ -35,6 +35,14 @@ h2 {
 	font-size: 20px;
 }
 
+.form-block {
+	background: $white;
+	padding: 60px;
+	box-shadow: 0 2px 3px 0 rgba($black, .1);
+	@include media-breakpoint-down(md) {
+		padding: 30px;
+	}
+}
 .content {
 	.bg {
 		@include media-breakpoint-down(md) {
@@ -47,23 +55,16 @@ h2 {
 			width: 100%;
 		}
 		.form-group	{
-			overflow: hidden;
-			margin-bottom: 0;
-			// border: 1px solid #efefef;
-			padding: 15px 15px;
-			border-bottom: none;
 			position: relative;
-			background: #edf2f5;
-			border-bottom: 1px solid darken(#edf2f5, 2%);
 			label {
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
 				transition: .3s all ease;
 			}
-			
 			input {
 				background: transparent;
+				border-bottom: 1px solid #ccc;
 			}
 
 			&.first {
@@ -71,7 +72,6 @@ h2 {
 				border-top-right-radius: 7px;
 			}
 			&.last {
-				// border-bottom: 1px solid #efefef;
 				border-bottom-left-radius: 7px;
 				border-bottom-right-radius: 7px;
 			}
@@ -86,7 +86,7 @@ h2 {
 			}
 			&.field--not-empty {
 				label {
-					margin-top: -20px;
+					margin-top: -25px;
 				}
 			}
 		}
@@ -118,6 +118,10 @@ h2 {
 		position: relative;
 		top: 2px;
 		font-size: 14px;
+	}
+
+	.btn-pill {
+		border-radius: 30px;
 	}
 }
 

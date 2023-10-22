@@ -63,9 +63,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{ route('product.index') }}"
+                                class="nav-link {{ GlobalHelper::isCurrentUrl('admin/master/product*') }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v2</p>
+                                <p>Product</p>
                             </a>
                         </li>
                         <li class="nav-item">

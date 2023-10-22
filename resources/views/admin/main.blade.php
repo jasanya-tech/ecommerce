@@ -67,6 +67,9 @@
             });
         }
     </script>
+
+
+    @stack('scripts')
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
 </body>

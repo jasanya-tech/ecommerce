@@ -116,10 +116,10 @@ class GlobalHelper
         return $positionsId;
     }
 
-    public static function isCurrentUrl($url)
+    public static function isCurrentUrl($url, $string = 'active')
     {
         if (Request::is($url)) {
-            return 'active';
+            return $string;
         }
 
         return '';

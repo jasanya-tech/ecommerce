@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -26,11 +27,12 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['admin'])->group(function () {
     Route::get("/admin", [Dashboard::class, 'index'])->name('admin.dashboard');
+    Route::resource('/admin/master/category', CategoryController::class)->except('show');
 });
 
 Route::middleware(['auth'])->group(function () {
 });
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get("/auth/logout", [AuthController::class, 'logout'])->name('auth.logout');
 });

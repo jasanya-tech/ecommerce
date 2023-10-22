@@ -44,7 +44,29 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('assets/admin') }}/dist/js/demo.js"></script>
     <script src="{{ asset('assets/admin') }}/dist/js/pages/dashboard2.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmPopup(button, text) {
+            event.preventDefault();
+            Swal.fire({
+                title: text,
+                icon: "warning",
+                buttonsStyling: false,
+                showCancelButton: true,
+                confirmButtonText: "Yes!",
+                cancelButtonText: 'No',
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                    cancelButton: 'btn btn-danger'
+                },
+                reverseButtons: true
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    $(button).closest("form").submit();
+                }
+            });
+        }
+    </script>
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
 </body>

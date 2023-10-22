@@ -14,8 +14,8 @@
                      <li><a class="nav-link scrollto" href="#services">Services</a></li>
                      <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
                      <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                     <li class="dropdown"><a href="#"><span>Drop Down</span> <i
-                                 class="bi bi-chevron-down"></i></a>
+                     <li class="dropdown">
+                         <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                          <ul>
                              <li><a href="#">Drop Down 1</a></li>
                              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
@@ -34,7 +34,26 @@
                          </ul>
                      </li>
                      <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                     <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+                     {{-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> --}}
+                     @if (auth()->user())
+                         <li class="dropdown">
+                             <a class="dropdown-toggle me-3" href="#" id="userDropdown" role="button"
+                                 data-bs-toggle="dropdown" aria-expanded="false">
+                                 <img src="{{ FileHelper::getImage('/images/users/' . auth()->user()->image) }}"
+                                     alt="User Profile" class="img-fluid rounded-circle"
+                                     style="width: 30px; height: 30px;">
+                             </a>
+                             <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                 <!-- Isi dropdown menu untuk pengguna di sini -->
+                                 <li><a class="dropdown-item" href="#">Profil Saya</a></li>
+                                 <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+                                 <li><a class="dropdown-item" href="{{ route('auth.logout') }}">Keluar</a></li>
+                             </ul>
+                         </li>
+                     @else
+                         <li><a class="getstarted scrollto" href="{{ route('auth.login') }}">Login</a></li>
+                     @endif
+
                  </ul>
                  <i class="bi bi-list mobile-nav-toggle"></i>
              </nav><!-- .navbar -->

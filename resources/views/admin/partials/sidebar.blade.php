@@ -46,20 +46,21 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">EXAMPLES</li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                <li class="nav-header">Master</li>
+                <li class="nav-item {{ GlobalHelper::isCurrentUrl('admin/master/*', 'menu-open') }}">
+                    <a href="#" class="nav-link {{ GlobalHelper::isCurrentUrl('admin/master/*') }}">
+                        <i class="nav-icon fas fa-table"></i>
                         <p>
-                            Dashboard
+                            Master Management
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="./index.html" class="nav-link">
+                        <li class="nav-item ">
+                            <a href="{{ route('category.index') }}"
+                                class="nav-link {{ GlobalHelper::isCurrentUrl('admin/master/category*') }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v1</p>
+                                <p>Kategori Product</p>
                             </a>
                         </li>
                         <li class="nav-item">

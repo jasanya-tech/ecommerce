@@ -28,3 +28,21 @@
 .ck-editor__editable {
     min-height: 150px;
 }
+
+/* CSS */
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.dropzone .dz-preview.dz-image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+}

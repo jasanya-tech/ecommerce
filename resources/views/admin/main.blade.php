@@ -16,8 +16,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('assets/admin') }}/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="{{ asset('assets/admin') }}/dist/css/custom.css">
-
     <link href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/min/dropzone.min.css" rel="stylesheet">
+
 </head>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -44,13 +44,17 @@
     <!-- ChartJS -->
     <script src="{{ asset('assets/admin') }}/plugins/chart.js/Chart.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/min/dropzone.min.js"></script>
-
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('assets/admin') }}/dist/js/demo.js"></script>
     <script src="{{ asset('assets/admin') }}/dist/js/pages/dashboard2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         function confirmPopup(button, text) {
             event.preventDefault();
             Swal.fire({

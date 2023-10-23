@@ -30,7 +30,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get("/admin", [Dashboard::class, 'index'])->name('admin.dashboard');
     Route::resource('/admin/master/category', CategoryController::class);
 
-    Route::resource('/admin/master/product', ProductController::class)->except('show');
+    Route::resource('/admin/master/product', ProductController::class);
     Route::get('/admin/master/product/{product}', [ProductController::class, 'show'])->name('product.show');
 });
 

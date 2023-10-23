@@ -42,7 +42,7 @@ class ProductController extends Controller
             'price.min' => 'minimal 0',
             'price.required' => 'tidak boleh dikosongkan',
             'price.max' => 'maximal 1000000000',
-            'thumbnail.min' => 'minimal karakter 150',
+            'thumbnail.min' => 'maximal karakter 150',
             'thumbnail.required' => 'tidak boleh dikosongkan',
             'description.required' => 'tidak boleh dikosongkan',
             'image.required' => 'tidak boleh dikosongkan',
@@ -116,7 +116,7 @@ class ProductController extends Controller
             'price.min' => 'minimal 0',
             'price.required' => 'tidak boleh dikosongkan',
             'price.max' => 'maximal 1000000000',
-            'thumbnail.min' => 'minimal karakter 150',
+            'thumbnail.min' => 'maximal karakter 150',
             'thumbnail.required' => 'tidak boleh dikosongkan',
             'description.required' => 'tidak boleh dikosongkan',
             'image.required' => 'tidak boleh dikosongkan',
@@ -167,7 +167,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return back()->with([
+        Storage::deleteDirectory('products/' . $product->name);
+        return redirect()->route('product.index')->with([
             'message' => 'deleted product ' . $product->name . ' berhasil',
             'status' => 'success',
         ]);

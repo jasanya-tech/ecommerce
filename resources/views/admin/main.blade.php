@@ -47,6 +47,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('assets/admin') }}/dist/js/demo.js"></script>
     <script src="{{ asset('assets/admin') }}/dist/js/pages/dashboard2.js"></script>
+    <script src="{{ asset('assets/admin') }}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $.ajaxSetup({

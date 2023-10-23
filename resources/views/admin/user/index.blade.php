@@ -6,12 +6,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Product</h1>
+                        <h1>User</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Product</li>
+                            <li class="breadcrumb-item active">User</li>
                         </ol>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                             <div class="card-header">
                                 <div class="d-flex justify-content-between mb-3">
                                     <div>
-                                        <a href="{{ route('product.create') }}" class="btn btn-primary">Add Product</a>
+                                        <a href="{{ route('user.create') }}" class="btn btn-primary">Add User</a>
                                     </div>
                                     <div class="dropdown-filter">
                                         <button type="button" class="btn btn-primary" id="filter-button">
@@ -44,13 +44,13 @@
                                         <div id="filter-content" class="collapse">
                                             <form action="{{ url()->current() }}" method="GET">
                                                 <div class="form-group">
-                                                    <label for="filter">Filter by Stock:</label>
+                                                    <label for="filter">Filter by Role:</label>
                                                     <div class="input-group">
-                                                        <select id="filter" class="custom-select" name="stock_filter">
+                                                        <select id="filter" class="custom-select" name="role">
                                                             <option value="">All</option>
-                                                            <option value="available" @selected(request()->stock_filter == 'available')>Tersedia
+                                                            <option value="admin" @selected(request()->role == 'admin')>Admin
                                                             </option>
-                                                            <option value="unavailable" @selected(request()->stock_filter == 'unavailable')>Kosong
+                                                            <option value="member" @selected(request()->role == 'member')>Member
                                                             </option>
                                                         </select>
                                                     </div>
@@ -75,74 +75,9 @@
                                                             <option value="name_desc" @selected(request()->sort_option == 'name_desc')>Name
                                                                 (desc)
                                                             </option>
-                                                            <option value="price_asc" @selected(request()->sort_option == 'price_asc')>Price
-                                                                (asc)
-                                                            </option>
-                                                            <option value="price_desc" @selected(request()->sort_option == 'price_desc')>Price
-                                                                (desc)
-                                                            </option>
-                                                            <option value="stock_asc" @selected(request()->sort_option == 'stock_asc')>Stock
-                                                                (asc)
-                                                            </option>
-                                                            <option value="stock_desc" @selected(request()->sort_option == 'stock_desc')>Stock
-                                                                (desc)
-                                                            </option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                {{-- <div class="form-group">
-                                                    <label for="orderBy">Order By:</label>
-                                                    <div class="input-group">
-                                                        <button type="button" class="btn btn-primary" id="orderButton"
-                                                            data-toggle="collapse" data-target="#orderOptions">
-                                                            Order By
-                                                        </button>
-                                                        <div id="orderOptions" class="collapse">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="name_asc"
-                                                                    @if (request()->sort_option == 'name_asc') checked @endif>
-                                                                <label class="form-check-label" for="sort_name_asc">    Name (asc)</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="name_desc"
-                                                                    @if (request()->sort_option == 'name_desc') checked @endif>
-                                                                <label class="form-check-label" for="sort_name_desc">Sort
-                                                                    by Name (desc)</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="price_asc"
-                                                                    @if (request()->sort_option == 'price_asc') checked @endif>
-                                                                <label class="form-check-label" for="sort_price_asc">Sort by
-                                                                    Price (asc)</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="price_desc"
-                                                                    @if (request()->sort_option == 'price_desc') checked @endif>
-                                                                <label class="form-check-label" for="sort_price_desc">Sort
-                                                                    by Price (desc)</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="stock_asc"
-                                                                    @if (request()->sort_option == 'stock_asc') checked @endif>
-                                                                <label class="form-check-label" for="sort_stock_asc">Sort
-                                                                    by
-                                                                    Stock (asc)</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="stock_desc"
-                                                                    @if (request()->sort_option == 'stock_desc') checked @endif>
-                                                                <label class="form-check-label" for="sort_stock_desc">Sort
-                                                                    by Stock (desc)</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
                                                 <div class="d-flex justify-content-left">
                                                     <button type="submit" class="btn btn-primary m-1" id="apply-button">
                                                         Apply
@@ -164,18 +99,20 @@
                                         <tr>
                                             <th style="width: 10px">No</th>
                                             <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Stock</th>
+                                            <th>Email</th>
+                                            <th>Nomer Handphone</th>
+                                            <th>Role</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($products as $product)
+                                        @foreach ($users as $user)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $product->name }}</td>
-                                                <td>{{ GlobalHelper::formatRupiah($product->price) }}</td>
-                                                <td>{{ $product->stock }} pcs</td>
+                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $user->email }}</td>
+                                                <td>{{ $user->phone_number }}</td>
+                                                <td>{{ $user->role == 1 ? 'admin' : 'member' }}</td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-default dropdown-toggle"
@@ -184,19 +121,19 @@
                                                         </button>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item"
-                                                                href="{{ route('product.edit', $product->id) }}">
+                                                                href="{{ route('user.edit', $user->id) }}">
                                                                 <i class="fas fa-edit"></i> Edit
                                                             </a>
                                                             <a class="dropdown-item"
-                                                                href="{{ route('product.show', $product->id) }}">
+                                                                href="{{ route('user.show', $user->id) }}">
                                                                 <i class="fas fa-eye"></i> Show
                                                             </a>
-                                                            <form action="{{ route('product.destroy', $product->id) }}"
+                                                            <form action="{{ route('user.destroy', $user->id) }}"
                                                                 method="POST" class="delete-form">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <a class="dropdown-item" href="#"
-                                                                    onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus product ini, jika anda menghapus product ini, maka data pesanan akan dihapus?');">
+                                                                    onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus user ini, jika anda menghapus user ini, maka data pesanan akan dihapus?');">
                                                                     <i class="fas fa-trash-alt"></i> Delete
                                                                 </a>
                                                             </form>
@@ -210,7 +147,7 @@
                             </div>
                             <div class="card-footer clearfix">
                                 <ul class="pagination pagination-sm m-0 float-right">
-                                    {!! $products->appends($_GET)->links() !!}
+                                    {!! $users->appends($_GET)->links() !!}
                                 </ul>
                             </div>
                         </div>
@@ -232,7 +169,7 @@
                     $('#filter-content').collapse('toggle');
                 });
 
-                @if (request()->search != '' || request()->stock_filter != '' || request()->sort_option != '')
+                @if (request()->search != '' || request()->role != '' || request()->sort_option != '')
                     $('#filter-content').collapse('toggle');
                     @if (request()->sort_option != '')
                         $('#orderOptions').collapse('toggle');

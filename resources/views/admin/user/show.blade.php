@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Detail Product</h1>
+                        <h1>Detail User</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -21,40 +21,35 @@
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="name">Nama Product</label>
-                                    <input type="text" class="form-control" value="{{ $product->name }}" readonly>
+                                    <label for="name">Nama</label>
+                                    <input type="text" class="form-control" value="{{ $user->name }}" readonly>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="stock">Stock Product</label>
-                                    <input type="text" class="form-control" value="{{ $product->stock }} pcs" readonly>
+                                    <label for="stock">Email</label>
+                                    <input type="text" class="form-control" value="{{ $user->email }}" readonly>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="price">Harga Product</label>
+                                    <label for="phone_number">Nomor Handphone</label>
+                                    <input type="text" class="form-control" value="{{ $user->phone_number }}" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="thumbnail">Role</label>
                                     <input type="text" class="form-control"
-                                        value="{{ GlobalHelper::formatRupiah($product->price) }}" readonly>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="thumbnail">Thumbnail Product</label>
-                                    <input type="text" class="form-control" value="{{ $product->thumbnail }}" readonly>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <div>{!! $product->description !!}</div>
+                                        value="{{ $user->role == 1 ? 'admin' : 'member' }}" readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="images">Images</label>
                                     <div class="row">
-                                        @foreach ($product->image as $image)
-                                            <div class="col-md-3">
-                                                <img src="{{ FileHelper::getImage("/products/$product->name/$image->image") }}"
-                                                    class="img-fluid" alt="Product Image">
-                                            </div>
-                                        @endforeach
+                                        @if ($user->image)
+                                            <img src="{{ FileHelper::getImage('users/' . $user->image) }}" class="img-fluid"
+                                                alt="User Image">
+                                        @else
+                                            <p>No image available</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -65,14 +60,14 @@
             <div class="container">
                 <div class="row">
                     <div class="m-1">
-                        <a href="{{ route('product.update', $product->id) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary">Edit</a>
                     </div>
                     <div class="m-1">
-                        <form method="POST" action="{{ route('product.destroy', $product->id) }}">
+                        <form method="POST" action="{{ route('user.destroy', $user->id) }}">
                             @csrf
                             @method('DELETE')
                             <a class="btn btn-danger" href="#"
-                                onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus product ini, jika anda menghapus product ini, maka data pesanan akan dihapus?');">
+                                onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus user ini, jika anda menghapus user ini, maka data pesanan akan dihapus?');">
                                 Delete
                             </a>
                         </form>

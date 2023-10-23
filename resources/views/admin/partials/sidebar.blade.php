@@ -70,9 +70,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
+                            <a href="{{ route('user.index') }}"
+                                class="nav-link {{ GlobalHelper::isCurrentUrl('admin/master/user*') }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v3</p>
+                                <p>User</p>
                             </a>
                         </li>
                     </ul>

@@ -40,7 +40,7 @@
                                     <div class="form-group">
                                         <label for="name">Nama Product</label>
                                         <input type="text" class="form-control" value="{{ old('name') }}"
-                                            id="name" name="name" placeholder="Masukan Name Kategori">
+                                            id="name" name="name" placeholder="Masukan Name">
                                         @error('name')
                                             <span class="help-block" style="color:red;">{{ $message }}</span>
                                         @enderror
@@ -50,7 +50,7 @@
                                         <label for="stock">Stock Product</label>
                                         <input type="number" class="form-control" min="0"
                                             value="{{ old('stock') }}" id="stock" name="stock"
-                                            placeholder="Masukan Stock Kategori">
+                                            placeholder="Masukan Stock">
                                         @error('stock')
                                             <span class="help-block" style="color:red;">{{ $message }}</span>
                                         @enderror
@@ -60,7 +60,7 @@
                                         <label for="price">Harga Product</label>
                                         <input type="number" class="form-control" min="0"
                                             value="{{ old('price') }}" id="price" name="price"
-                                            placeholder="Masukan price Kategori">
+                                            placeholder="Masukan price">
                                         @error('price')
                                             <span class="help-block" style="color:red;">{{ $message }}</span>
                                         @enderror
@@ -69,7 +69,7 @@
                                     <div class="form-group">
                                         <label for="thumbnail">Thumbnail Product</label>
                                         <input type="text" class="form-control" value="{{ old('thumbnail') }}"
-                                            id="thumbnail" name="thumbnail" placeholder="Masukan thumbnail Kategori">
+                                            id="thumbnail" name="thumbnail" placeholder="Masukan thumbnail">
                                         @error('thumbnail')
                                             <span class="help-block" style="color:red;">{{ $message }}</span>
                                         @enderror

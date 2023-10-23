@@ -46,7 +46,7 @@ class AuthController extends Controller
         $message = $request->validate([
             'email' => 'email:rfc,dns|unique:users,email',
             'name' => 'required|min:6',
-            'phone_number' => 'required|numeric',
+            'phone_number' => 'required|numeric|unique:users,phone_number',
             'password' => 'required|confirmed|min:6',
         ]);
 

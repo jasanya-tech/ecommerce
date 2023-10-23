@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,9 @@ Route::middleware(['admin'])->group(function () {
 
     Route::resource('/admin/master/product', ProductController::class);
     Route::get('/admin/master/product/{product}', [ProductController::class, 'show'])->name('product.show');
+
+    Route::resource('/admin/master/user', UserController::class);
+    Route::get('/admin/master/user/{user}', [UserController::class, 'show'])->name('user.show');
 });
 
 Route::middleware(['auth'])->group(function () {

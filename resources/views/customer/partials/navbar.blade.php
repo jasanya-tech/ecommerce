@@ -39,7 +39,7 @@
                          <li class="dropdown">
                              <a class="dropdown-toggle me-3" href="#" id="userDropdown" role="button"
                                  data-bs-toggle="dropdown" aria-expanded="false">
-                                 <img src="{{ FileHelper::getImage('/images/users/' . auth()->user()->image) }}"
+                                 <img src="{{ FileHelper::getImage('users/' . auth()->user()->image) }}"
                                      alt="User Profile" class="img-fluid rounded-circle"
                                      style="width: 30px; height: 30px;">
                              </a>

@@ -86,7 +86,7 @@
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <a class="dropdown-item" href="#"
-                                                                    onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus kategori ini, jika anda menghapus kategori ini, make data product yang berkategori ini akan dihapus?');">
+                                                                    onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus kategori ini, jika anda menghapus kategori ini, maka data product yang berkategori ini akan dihapus?');">
                                                                     <i class="fas fa-trash-alt"></i> Delete
                                                                 </a>
                                                             </form>

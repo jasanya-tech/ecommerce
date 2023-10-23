@@ -1,0 +1,30 @@
+.dropzone {
+    border: 2px dashed #007bff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.dz-message {
+    color: #007bff;
+    font-size: 1.2rem;
+}
+
+.dz-remove {
+    cursor: pointer;
+    color: red;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    font-size: 1.2rem;
+}
+
+.ck-editor {
+    color: black !important;
+    background-color: white !important;
+}
+
+.ck-editor__editable {
+    min-height: 150px;
+}

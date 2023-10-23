@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="{{ asset('assets/admin') }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('assets/admin') }}/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/admin') }}/dist/css/custom.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/min/dropzone.min.css" rel="stylesheet">
 </head>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -40,6 +43,8 @@
     <script src="{{ asset('assets/admin') }}/plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <!-- ChartJS -->
     <script src="{{ asset('assets/admin') }}/plugins/chart.js/Chart.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/min/dropzone.min.js"></script>
 
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('assets/admin') }}/dist/js/demo.js"></script>
@@ -67,7 +72,7 @@
             });
         }
     </script>
-
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
     @stack('scripts')
     <!-- REQUIRED SCRIPTS -->

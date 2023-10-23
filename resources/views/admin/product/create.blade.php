@@ -76,12 +76,28 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="category">Category</label>
+                                        <select id="category" name="category_id" class="form-control select2">
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}"
+                                                    @if (old('category_id') == $category->id) selected @endif>{{ $category->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('category_id')
+                                            <span class="help-block" style="color: red;">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="description">Description</label>
                                         <textarea id="description" name="description">{{ old('description') }}</textarea>
                                         @error('description')
                                             <span class="help-block" style="color: red;">{{ $message }}</span>
                                         @enderror
                                     </div>
+
+
 
                                     <div class="form-group">
                                         <label for="name">Image</label>

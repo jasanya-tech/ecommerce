@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController as ControllersProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,4 +44,6 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get("/auth/logout", [AuthController::class, 'logout'])->name('auth.logout');
+
+    Route::get("/product/{product}", [ControllersProductController::class, 'show'])->name('product.user.show');
 });

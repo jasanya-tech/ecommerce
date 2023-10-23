@@ -164,6 +164,7 @@
                                         <tr>
                                             <th style="width: 10px">No</th>
                                             <th>Name</th>
+                                            <th>Category</th>
                                             <th>Price</th>
                                             <th>Stock</th>
                                             <th>Action</th>
@@ -174,6 +175,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $product->name }}</td>
+                                                <td>{{ $product->category->name }}</td>
                                                 <td>{{ GlobalHelper::formatRupiah($product->price) }}</td>
                                                 <td>{{ $product->stock }} pcs</td>
                                                 <td>

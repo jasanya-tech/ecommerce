@@ -38,11 +38,11 @@ class ProductSeeder extends Seeder
                 'description' => 'product3 ini hebat dan keren',
             ],
             [
-                'name' => 'teriplek',
-                'price' => 100000,
+                'name' => 'meja kaca',
+                'price' => 5000000,
                 'stock' => 90,
-                'thumbnail' => 'product4 ini keren',
-                'description' => 'product4 ini hebat dan keren',
+                'thumbnail' => 'kaca tebal 1 mm, kuat tahan banting dll, ga percaya coba aja sana',
+                'description' => '<ol><li>cara pemasangan ada petunjuk didalam kardus</li><li>garansi 1 tahun</li><li>jika order sudah di kurir maka bukan tanggung jawab kami</li></ol>',
             ],
         ];
 

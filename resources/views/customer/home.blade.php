@@ -482,107 +482,30 @@
 
                 <div class="row" data-aos="fade-up" data-aos-delay="100">
 
-                    <!-- Product 3 -->
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class "portfolio-wrap">
-                            <a href="product-details.html">
-                                <img src="/assets/customer/img/portfolio/portfolio-1.jpg" class="img-fluid"
-                                    alt="">
-                            </a>
-                            <div class="portfolio-info">
-                                <h4 class="mt-3">Product 3</h4>
-                                <p>Price: $14.99</p>
-                                <div class="portfolio-links">
-                                    <a href="/assets/customer/img/portfolio/portfolio-1.jpg"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="Product 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="#" class="portfolio-button" data-product="Product 3"
-                                        data-price="14.99"><i class="bx bx-cart"></i> Add to Cart</a>
+                    @foreach ($products as $product)
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                            <div class "portfolio-wrap">
+                                <a href="{{ route('product.user.show', $product->id) }}">
+                                    <img src="{{ FileHelper::getImage('products/' . $product->name . '/' . $product->image[0]->image) }}"
+                                        class="img-fluid" alt="">
+                                </a>
+                                <div class="portfolio-info">
+                                    <h4 class="mt-3">{{ $product->name }}</h4>
+                                    <p>{{ GlobalHelper::formatRupiah($product->price) }}</p>
+                                    <div class="portfolio-links">
+                                        <a href="#" class="portfolio-button" data-product="Product 3"
+                                            data-price="14.99"><i class="bx bx-cart"></i> Add to Cart</a>
+                                    </div>
+                                </div>
+                                <div class="portfolio-description">
+                                    <p>{{ $product->thumbnail }}
+                                    </p>
+                                    <a href="{{ route('product.user.show', $product->id) }}"
+                                        class="portfolio-details-button"><i class="bx bx-link"></i> Details</a>
                                 </div>
                             </div>
-                            <div class="portfolio-description">
-                                <p>Product 3 description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                                <a href="product-details.html" class="portfolio-details-button"><i
-                                        class="bx bx-link"></i> Details</a>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class "portfolio-wrap">
-                            <a href="product-details.html">
-                                <img src="/assets/customer/img/portfolio/portfolio-2.jpg" class="img-fluid"
-                                    alt="">
-                            </a>
-                            <div class="portfolio-info">
-                                <h4 class="mt-3">Product 3</h4>
-                                <p>Price: $14.99</p>
-                                <div class="portfolio-links">
-                                    <a href="/assets/customer/img/portfolio/portfolio-2.jpg"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="Product 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="#" class="portfolio-button" data-product="Product 3"
-                                        data-price="14.99"><i class="bx bx-cart"></i> Add to Cart</a>
-                                </div>
-                            </div>
-                            <div class="portfolio-description">
-                                <p>Product 3 description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                                <a href="product-details.html" class="portfolio-details-button"><i
-                                        class="bx bx-link"></i> Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class "portfolio-wrap">
-                            <a href="product-details.html">
-                                <img src="/assets/customer/img/portfolio/portfolio-3.jpg" class="img-fluid"
-                                    alt="">
-                            </a>
-                            <div class="portfolio-info">
-                                <h4 class="mt-3">Product 3</h4>
-                                <p>Price: $14.99</p>
-                                <div class="portfolio-links">
-                                    <a href="/assets/customer/img/portfolio/portfolio-3.jpg"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="Product 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="#" class="portfolio-button" data-product="Product 3"
-                                        data-price="14.99"><i class="bx bx-cart"></i> Add to Cart</a>
-                                </div>
-                            </div>
-                            <div class="portfolio-description">
-                                <p>Product 3 description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                                <a href="product-details.html" class="portfolio-details-button"><i
-                                        class="bx bx-link"></i> Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class "portfolio-wrap">
-                            <a href="product-details.html">
-                                <img src="/assets/customer/img/portfolio/portfolio-4.jpg" class="img-fluid"
-                                    alt="">
-                            </a>
-                            <div class="portfolio-info">
-                                <h4 class="mt-3">Product 4</h4>
-                                <p>Price: $14.99</p>
-                                <div class="portfolio-links">
-                                    <a href="/assets/customer/img/portfolio/portfolio-4.jpg"
-                                        data-gallery="portfolioGallery" class="portfolio-lightbox" title="Product 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="#" class="portfolio-button" data-product="Product 3"
-                                        data-price="14.99"><i class="bx bx-cart"></i> Add to Cart</a>
-                                </div>
-                            </div>
-                            <div class="portfolio-description">
-                                <p>Product 3 description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                                <a href="product-details.html" class="portfolio-details-button"><i
-                                        class="bx bx-link"></i> Details</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

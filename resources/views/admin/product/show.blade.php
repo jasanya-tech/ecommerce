@@ -40,6 +40,11 @@
                                     <label for="thumbnail">Thumbnail Product</label>
                                     <input type="text" class="form-control" value="{{ $product->thumbnail }}" readonly>
                                 </div>
+                                <div class="form-group">
+                                    <label for="thumbnail">Category Product</label>
+                                    <input type="text" class="form-control" value="{{ $product->category->name }}"
+                                        readonly>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="description">Description</label>

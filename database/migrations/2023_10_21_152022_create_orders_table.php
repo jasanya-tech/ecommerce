@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->nullable()->constrained('products')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->timestamps();
         });
     }

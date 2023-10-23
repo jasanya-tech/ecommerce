@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\ImageProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -20,7 +21,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.product.create');
+        $categories = Category::all();
+        return view('admin.product.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -32,6 +34,7 @@ class ProductController extends Controller
             'thumbnail' => 'required|max:150',
             'description' => 'required',
             'image' => 'required|array|max:10',
+            'category_id' => 'required',
             'image.*' => 'mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ], [
             'name.required' => 'nama tidak boleh dikosongkan',
@@ -45,6 +48,7 @@ class ProductController extends Controller
             'thumbnail.min' => 'maximal karakter 150',
             'thumbnail.required' => 'tidak boleh dikosongkan',
             'description.required' => 'tidak boleh dikosongkan',
+            'category_id.required' => 'tidak boleh dikosongkan',
             'image.required' => 'tidak boleh dikosongkan',
             'image.array' => 'invalid request',
             'image.max' => 'maximal 10 image',
@@ -94,7 +98,8 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('admin.product.edit', compact('product'));
+        $categories = Category::all();
+        return view('admin.product.edit', compact('product', 'categories'));
     }
 
     public function update(Request $request, Product $product)
@@ -106,6 +111,7 @@ class ProductController extends Controller
             'thumbnail' => 'required|max:150',
             'description' => 'required',
             'image' => 'required|array|max:10',
+            'category_id' => 'required',
             'image.*' => 'mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ], [
             'name.required' => 'nama tidak boleh dikosongkan',
@@ -119,6 +125,7 @@ class ProductController extends Controller
             'thumbnail.min' => 'maximal karakter 150',
             'thumbnail.required' => 'tidak boleh dikosongkan',
             'description.required' => 'tidak boleh dikosongkan',
+            'category_id.required' => 'tidak boleh dikosongkan',
             'image.required' => 'tidak boleh dikosongkan',
             'image.array' => 'invalid request',
             'image.max' => 'maximal 10 image',

@@ -18,6 +18,7 @@ class ProductSeeder extends Seeder
         $product = [
             [
                 'name' => 'kayu batangan',
+                'category_id' => 1,
                 'price' => 70000,
                 'stock' => 100,
                 'thumbnail' => 'product1 ini keren',
@@ -25,6 +26,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'name' => 'lemari baju',
+                'category_id' => 1,
                 'price' => 80000,
                 'stock' => 80,
                 'thumbnail' => 'product2 ini keren',
@@ -32,6 +34,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'name' => 'kasur',
+                'category_id' => 1,
                 'price' => 90000,
                 'stock' => 20,
                 'thumbnail' => 'product3 ini keren',
@@ -39,6 +42,7 @@ class ProductSeeder extends Seeder
             ],
             [
                 'name' => 'meja kaca',
+                'category_id' => 2,
                 'price' => 5000000,
                 'stock' => 90,
                 'thumbnail' => 'kaca tebal 1 mm, kuat tahan banting dll, ga percaya coba aja sana',

@@ -1,10 +1,9 @@
 @extends('customer.main')
 
 @section('containers')
-    <br>
     <main id="main">
 
-        <section id="products" class="portfolio">
+        <section id="products" class="portfolio mt-5">
             <div class="container">
                 <div class="section-title d-flex justify-content-between" data-aos="fade-left">
                     <h2>Products</h2>
@@ -78,9 +77,17 @@
                                 <div class="portfolio-info">
                                     <h4 class="mt-3">{{ $product->name }}</h4>
                                     <p>{{ GlobalHelper::formatRupiah($product->price) }}</p>
+                                    <p><strong>Stock:</strong> {{ $product->stock }} pcs</p>
                                     <div class="portfolio-links">
-                                        <a href="#" class="portfolio-button" data-product="Product 3"
-                                            data-price="14.99"><i class="bx bx-cart"></i> Add to Cart</a>
+                                        <form id="addToCartForm_{{ $product->id }}"
+                                            action="{{ route('user.cart.store', $product->id) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="quantity" value="1">
+                                            <a href="#" class="portfolio-button" data-product="Product 3"
+                                                data-price="14.99" onclick="addToCart({{ $product->id }})">
+                                                <i class="bx bx-cart"></i> Add to Cart
+                                            </a>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="portfolio-description">
@@ -97,4 +104,12 @@
         </section>
 
     </main>
+    @push('scripts')
+        <script>
+            function addToCart(productId) {
+                // Munculkan form dengan JavaScript
+                document.getElementById('addToCartForm_' + productId).submit();
+            }
+        </script>
+    @endpush
 @endsection

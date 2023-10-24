@@ -24,9 +24,9 @@
                              @endforeach
                          </ul>
                      </li>
-                     <li><a class="nav-link scrollto" href="/#products">Cart</a></li>
+                     <li><a class="nav-link scrollto {{ GlobalHelper::isCurrentUrl('cart*') }}"
+                             href="{{ route('user.cart.index') }}">Cart</a></li>
                      <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
-                     {{-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> --}}
                      @if (auth()->user())
                          <li class="dropdown">
                              <a class="dropdown-toggle me-3" href="#" id="userDropdown" role="button"

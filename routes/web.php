@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController as ControllersProductController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,8 @@ Route::get("/product/category/{category}", [ControllersProductController::class,
 
 Route::middleware(['auth'])->group(function () {
     Route::get("/auth/logout", [AuthController::class, 'logout'])->name('auth.logout');
+    Route::get('/cart', [CartController::class, 'index'])->name('user.cart.index');
+    Route::post('/cart{product}', [CartController::class, 'store'])->name('user.cart.store');
 });
 
 Route::middleware(['guest'])->group(function () {

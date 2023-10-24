@@ -43,12 +43,15 @@ class CartController extends Controller
         $totalPrice = $product->price * $request->quantity;
         if ($cartItem) {
             $totalQuantity = $cartItem->quantity + $request->quantity;
-            if ($totalQuantity > $product->stock) {
+            if ($request->quantity > $product->stock) {
                 return back()->with([
                     'warning' => 'Jumlah di keranjang melebihi stok produk. Stok tersisa: ' . $product->stock . ' pcs',
                     'status' => 'warning',
                 ]);
+            } elseif (($request->quantity > $product->stock)) {
+                $totalQuantity = $product->stock;
             }
+
             $totalPrice = $product->price * $totalQuantity;
             $cartItem->update([
                 'quantity' => $totalQuantity,

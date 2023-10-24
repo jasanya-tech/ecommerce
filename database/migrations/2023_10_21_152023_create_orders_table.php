@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('payment_proof');
             $table->text('additional_note');
             $table->integer('total');
+            $table->string('status');
             $table->timestamps();
         });
     }

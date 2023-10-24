@@ -40,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/cart{cart}', [CartController::class, 'update'])->name('user.cart.update');
     Route::delete('/cart{cart}', [CartController::class, 'destroy'])->name('user.cart.destroy');
 
+    Route::get('/order', [OrderController::class, 'index'])->name('user.order.index');
+    Route::get('/order/show/{order}', [OrderController::class, 'show'])->name('user.order.show');
     Route::get('/order/{product}', [OrderController::class, 'create'])->name('user.order.create');
     Route::post('/order', [OrderController::class, 'store'])->name('user.order.store');
     Route::post('/order/from-cart', [OrderController::class, 'storeFromCart'])->name('user.order.store.from.cart');

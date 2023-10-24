@@ -26,6 +26,8 @@
                      </li>
                      <li><a class="nav-link scrollto {{ GlobalHelper::isCurrentUrl('cart*') }}"
                              href="{{ route('user.cart.index') }}">Cart</a></li>
+                     <li><a class="nav-link scrollto {{ GlobalHelper::isCurrentUrl('order*') }}"
+                             href="{{ route('user.order.index') }}">Order</a></li>
                      <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
                      @if (auth()->user())
                          <li class="dropdown">

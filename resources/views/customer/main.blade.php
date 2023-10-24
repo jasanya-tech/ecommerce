@@ -41,7 +41,7 @@
         .quantity-input {
             display: flex;
             align-items: center;
-            width: 150px;
+            width: 200px;
             justify-content: space-between;
             border: 1px solid #ccc;
             border-radius: 5px;

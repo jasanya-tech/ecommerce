@@ -40,9 +40,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p class="cart-item-subtotal"><strong>Subtotal:</strong>
-                                                123
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -53,11 +50,11 @@
                         <div class="card mb-3">
                             <div class="card-body">
                                 <h5 class="cart-summary-title">Cart Summary</h5>
-                                <p class="cart-summary-total">Total:
-                                    123
-                                    <br><small>*Jika anda membutuhkan bantuan, silahkan hubungi admin kami
-                                        <strong>08819238999</strong></small>
+                                <p class="cart-summary-total" id="subtotal">Total:
+                                    {{ GlobalHelper::formatRupiah($product->price) }}
                                 </p>
+                                <small>*Jika anda membutuhkan bantuan, silahkan hubungi admin kami
+                                    <strong>08819238999</strong></small> <br> <br>
                                 <button type="button" class="btn btn-success" id="openPaymentModal">Checkout</button>
                             </div>
                         </div>
@@ -90,15 +87,15 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="payment_name" class="form-label">Payment Name:</label>
-                            <select class="form-select" id="payment_name" name="payment_name" required>
+                            <label for="payment" class="form-label">Payment Name:</label>
+                            <select class="form-select" id="payment" name="payment" required>
                                 <option value="">Select Payment</option>
                                 @foreach ($payments as $payment)
-                                    <option value="{{ $payment->id }}" @selected(old('payment_name') == $payment->id)>{{ $payment->name }}
+                                    <option value="{{ $payment->id }}" @selected(old('payment') == $payment->id)>{{ $payment->name }}
                                     </option>
                                 @endforeach
                             </select>
-                            @error('payment_name')
+                            @error('payment')
                                 <span class="help-block" style="color:red;">{{ $message }}</span>
                             @enderror
                         </div>
@@ -152,6 +149,7 @@
                     bankAccountNumberDisplay.style.display = 'block';
                     var quantityInput = document.getElementById("quantity");
                     quantityInput.value = "{{ old('quantity') }}"
+                    updateSubtotal(quantityInput);
                 }
 
                 $('#openPaymentModal').click(function() {
@@ -163,7 +161,7 @@
         </script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                const bankNameSelect = document.getElementById("payment_name");
+                const bankNameSelect = document.getElementById("payment");
                 const bankAccountNumber = document.getElementById("no_rek");
                 const bankAccountNumberDisplay = document.getElementById("no_rek_display");
 
@@ -181,11 +179,29 @@
             });
         </script>
         <script>
+            const quantityInput = document.getElementById("quantity");
+            quantityInput.addEventListener("change", function() {
+                fixQuantity();
+                updateSubtotal(quantityInput);
+            });
+
+            function updateSubtotal(quantityInput) {
+                var price = {{ $product->price }};
+                var subtotal = price * quantityInput.value;
+                var subtotalElement = document.getElementById("subtotal");
+                var formattedSubtotal = new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR'
+                }).format(subtotal);
+                subtotalElement.textContent = "Total: " + formattedSubtotal.split(',')[0];
+            }
+
             function decreaseQuantity(productId) {
                 var quantityInput = document.getElementById("quantity");
                 if (quantityInput.value > 1) {
                     quantityInput.value = parseInt(quantityInput.value) - 1;
                 }
+                updateSubtotal(quantityInput);
             }
 
             function increaseQuantity(stock) {
@@ -197,11 +213,11 @@
                 } else {
                     quantityInput.value = parseInt(quantityInput.value) + 1;
                 }
+                updateSubtotal(quantityInput);
             }
 
             function setModalQuantity(stock) {
                 var quantityInput = document.getElementById("quantity");
-                console.log(quantityInput);
                 const quantityInputModal = document.getElementById("quantity_modal");
                 if (!parseInt(quantityInput.value) >= stock) {
                     quantityInputModal.value = quantityInput.value;
@@ -213,6 +229,16 @@
                     quantityInput.value = 1;
                 } else {
                     quantityInputModal.value = quantityInput.value;
+                }
+                updateSubtotal(quantityInput);
+            }
+
+            function fixQuantity() {
+                const quantity = parseInt(quantityInput.value);
+                if (quantity < 1) {
+                    quantityInput.value = 1;
+                } else if (quantity > {{ $product->stock }}) {
+                    quantityInput.value = {{ $product->stock }};
                 }
             }
         </script>

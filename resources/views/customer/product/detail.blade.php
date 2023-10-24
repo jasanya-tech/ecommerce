@@ -89,12 +89,12 @@
                 }
             }
 
-            function increaseQuantity() {
+            function increaseQuantity(stock) {
                 var quantityInput = document.getElementById("quantity");
-                if (!parseInt(quantityInput.value) >= {{ $product->stock }}) {
+                if (!parseInt(quantityInput.value) >= stock) {
                     quantityInput.value = parseInt(quantityInput.value) + 1;
-                } else if (parseInt(quantityInput.value) >= {{ $product->stock }}) {
-                    quantityInput.value = "{{ $product->stock }}";
+                } else if (parseInt(quantityInput.value) >= stock) {
+                    quantityInput.value = stock;
                 } else {
                     quantityInput.value = parseInt(quantityInput.value) + 1;
                 }

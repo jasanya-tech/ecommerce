@@ -5,7 +5,7 @@
         <section id="cart" class="portfolio mt-5">
             <div class="container">
                 <div class="section-title" data-aos="fade-left">
-                    <h2>Shopping Cart</h2>
+                    <h2>Keranjang</h2>
                 </div>
 
                 <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -98,37 +98,37 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="paymentModalLabel">Select Payment Method</h5>
+                    <h5 class="modal-title" id="paymentModalLabel">Lanjutkan Pembayaran</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Form untuk memilih dan mengisi detail pembayaran -->
-                    <form action="#" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('user.order.store.from.cart') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="payment_name" class="form-label">Bank Name:</label>
-                            <select class="form-select" id="payment_name" name="payment_name">
+                            <select class="form-select" id="payment_name" name="payment_name" required>
                                 <option value="bca">BCA</option>
                                 <option value="mandiri">Mandiri</option>
                                 <option value="other">Other Bank</option>
                             </select>
                             <div id="bankDetailsContainer" style="display: block;">
                                 <label for="no_rek" class="form-label">Nomor Rekening:</label>
-                                <input type="text" class="form-control" id="no_rek" name="no_rek" readonly>
+                                <input type="text" class="form-control" id="no_rek" name="no_rek" readonly required>
                                 <small>*Silahkan Transfer Ke Nomor Rekening diatas dan upload bukti pembayaran</small>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="payment_proof" class="form-label">Upload Bukti Pembayaran:</label>
-                            <input type="file" class="form-control" id="payment_proof" name="payment_proof">
+                            <input required type="file" class="form-control" id="payment_proof" name="payment_proof">
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Alamat Detail:</label>
-                            <textarea class="form-control" id="address" name="address" rows="2"></textarea>
+                            <textarea required class="form-control" id="address" name="address" rows="2"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="additional_note" class="form-label">Catatan Tambahan:</label>
-                            <textarea class="form-control" id="additional_note" name="additional_note" rows="4"></textarea>
+                            <textarea required class="form-control" id="additional_note" name="additional_note" rows="4"></textarea>
                         </div>
                         <small>*Silahkan Cek Kembali Pesanan Anda</small><br>
                         <button type="submit" class="btn btn-success">Confirm Payment</button>

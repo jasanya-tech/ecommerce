@@ -75,7 +75,9 @@
                                         class="img-fluid" alt="">
                                 </a>
                                 <div class="portfolio-info">
-                                    <h4 class="mt-3">{{ $product->name }}</h4>
+                                    <a href="{{ route('product.user.show', $product->id) }}">
+                                        <h4 class="mt-3">{{ $product->name }}</h4>
+                                    </a>
                                     <p>{{ GlobalHelper::formatRupiah($product->price) }}</p>
                                     <p><strong>Stock:</strong> {{ $product->stock }} pcs</p>
                                     <div class="portfolio-links">

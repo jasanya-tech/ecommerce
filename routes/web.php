@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController as ControllersProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/cart{product}', [CartController::class, 'store'])->name('user.cart.store');
     Route::put('/cart{cart}', [CartController::class, 'update'])->name('user.cart.update');
     Route::delete('/cart{cart}', [CartController::class, 'destroy'])->name('user.cart.destroy');
+
+    Route::get('/order/{product}', [OrderController::class, 'create'])->name('user.order.create');
+    Route::post('/order', [OrderController::class, 'store'])->name('user.order.store');
+    Route::post('/order/from-cart', [OrderController::class, 'storeFromCart'])->name('user.order.store.from.cart');
 });
 
 Route::middleware(['guest'])->group(function () {

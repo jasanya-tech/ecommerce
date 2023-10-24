@@ -62,8 +62,9 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Add to Cart</button>
+                                <a href="{{ route('user.order.create', $product->id) }}" class="btn btn-success">Beli
+                                    Sekarang</a>
                             </form>
-                            {{-- <a href="#" class="btn btn-success">Beli Sekarang</a> --}}
                         </div>
                         <div class="portfolio-description">
                             <h2>Deskripsi</h2>

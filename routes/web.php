@@ -30,6 +30,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/auth/logout", [AuthController::class, 'logout'])->name('auth.logout');
     Route::get('/cart', [CartController::class, 'index'])->name('user.cart.index');
     Route::post('/cart{product}', [CartController::class, 'store'])->name('user.cart.store');
+    Route::put('/cart{cart}', [CartController::class, 'update'])->name('user.cart.update');
+    Route::delete('/cart{cart}', [CartController::class, 'destroy'])->name('user.cart.destroy');
 });
 
 Route::middleware(['guest'])->group(function () {

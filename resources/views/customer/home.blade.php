@@ -189,12 +189,19 @@
                                         class="img-fluid" alt="">
                                 </a>
                                 <div class="portfolio-info">
-                                    <h4 class="mt-3">{{ $product->name }}</h4>
+                                    <a href="{{ route('product.user.show', $product->id) }}">
+                                        <h4 class="mt-3">{{ $product->name }}</h4>
+                                    </a>
                                     <p>{{ GlobalHelper::formatRupiah($product->price) }}</p>
-                                    <div class="portfolio-links">
+                                    <form id="addToCartForm_{{ $product->id }}"
+                                        action="{{ route('user.cart.store', $product->id) }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="quantity" value="1">
                                         <a href="#" class="portfolio-button" data-product="Product 3"
-                                            data-price="14.99"><i class="bx bx-cart"></i> Add to Cart</a>
-                                    </div>
+                                            data-price="14.99" onclick="addToCart({{ $product->id }})">
+                                            <i class="bx bx-cart"></i> Add to Cart
+                                        </a>
+                                    </form>
                                 </div>
                                 <div class="portfolio-description">
                                     <p>{{ $product->thumbnail }}
@@ -255,4 +262,13 @@
         </section><!-- End Contact Section -->
 
     </main><!-- End #main -->
+
+    @push('scripts')
+        <script>
+            function addToCart(productId) {
+                // Munculkan form dengan JavaScript
+                document.getElementById('addToCartForm_' + productId).submit();
+            }
+        </script>
+    @endpush
 @endsection

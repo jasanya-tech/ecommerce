@@ -90,9 +90,9 @@
 
             function increaseQuantity() {
                 var quantityInput = document.getElementById("quantity");
-                if (!parseInt(quantityInput.value) >= 80) {
+                if (!parseInt(quantityInput.value) >= {{ $product->stock }}) {
                     quantityInput.value = parseInt(quantityInput.value) + 1;
-                } else if (parseInt(quantityInput.value) >= 80) {
+                } else if (parseInt(quantityInput.value) >= {{ $product->stock }}) {
                     quantityInput.value = "{{ $product->stock }}";
                 } else {
                     quantityInput.value = parseInt(quantityInput.value) + 1;

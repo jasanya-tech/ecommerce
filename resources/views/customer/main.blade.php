@@ -51,14 +51,14 @@
         .quantity-button {
             width: 30px;
             height: 30px;
-            background: #f8f8f8;
+            background: #00cc95;
             border: none;
             cursor: pointer;
             transition: background 0.3s, color 0.3s;
         }
 
         .quantity-button:hover {
-            background: #357abf;
+            background: #009970;
             color: #fff;
         }
 

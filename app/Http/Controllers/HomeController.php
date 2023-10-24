@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
         return view('customer.home', [
             'title' => 'home',
-            'products' => Product::latest()->filter(request(['search', 'stock_filter', 'sort_option']))->paginate(10)
+            'products' => Product::latest()->filter(request(['search', 'stock_filter', 'sort_option']))->paginate(6)
         ]);
     }
 }

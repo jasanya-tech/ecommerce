@@ -40,9 +40,9 @@
 
 <body>
 
-    @include('customer.partials.navbar')
+    <x-Navbar />
     @yield('containers')
-    @include('customer.partials.footer')
+    <x-Footer />
     <!-- Vendor JS Files -->
     <script src="/assets/customer/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="/assets/customer/vendor/aos/aos.js"></script>
@@ -54,6 +54,9 @@
 
     <!-- Template Main JS File -->
     <script src="/assets/customer/js/main.js"></script>
+
+    <script src="{{ asset('assets/admin') }}/plugins/jquery/jquery.min.js"></script>
+    @stack('scripts')
 </body>
 
 </html>

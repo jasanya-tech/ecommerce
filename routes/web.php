@@ -21,6 +21,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get("/product/{product}", [ControllersProductController::class, 'show'])->name('product.user.show');
+Route::get("/product", [ControllersProductController::class, 'index'])->name('product.user.index');
+Route::get("/product/category/{category}", [ControllersProductController::class, 'indexByCategory'])->name('product.user.index.by.category');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get("/auth/logout", [AuthController::class, 'logout'])->name('auth.logout');
+});
+
 Route::middleware(['guest'])->group(function () {
     Route::get("/auth/login", [AuthController::class, 'login'])->name('auth.login');
     Route::post("/auth/login", [AuthController::class, 'loginProcess'])->name('auth.login.process');
@@ -37,13 +45,4 @@ Route::middleware(['admin'])->group(function () {
 
     Route::resource('/admin/master/user', UserController::class);
     Route::get('/admin/master/user/{user}', [UserController::class, 'show'])->name('user.show');
-});
-
-Route::middleware(['auth'])->group(function () {
-});
-
-Route::middleware(['auth'])->group(function () {
-    Route::get("/auth/logout", [AuthController::class, 'logout'])->name('auth.logout');
-
-    Route::get("/product/{product}", [ControllersProductController::class, 'show'])->name('product.user.show');
 });

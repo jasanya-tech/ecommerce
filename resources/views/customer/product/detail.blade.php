@@ -48,6 +48,8 @@
                                 <li><strong>Price</strong>: {{ GlobalHelper::formatRupiah($product->price) }}</li>
                                 <li><strong>Stock</strong>: {{ $product->stock }} pcs</li>
                             </ul>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                            {{-- <a href="#" class="btn btn-success">Beli Sekarang</a> --}}
                         </div>
                         <div class="portfolio-description">
                             <h2>Deskripsi</h2>

@@ -12,7 +12,6 @@
                      <li><a class="nav-link scrollto {{ GlobalHelper::isCurrentUrl('') }}" href="/#hero">Home</a>
                      </li>
                      <li><a class="nav-link scrollto" href="/#about">About</a></li>
-                     {{-- <li><a class="nav-link scrollto " href="/#products">Products</a></li> --}}
                      <li class="dropdown">
                          <a href="{{ route('product.user.index') }}"
                              class="{{ GlobalHelper::isCurrentUrl('product*') }}"><span>Products</span> <i
@@ -25,6 +24,7 @@
                              @endforeach
                          </ul>
                      </li>
+                     <li><a class="nav-link scrollto" href="/#products">Cart</a></li>
                      <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
                      {{-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> --}}
                      @if (auth()->user())

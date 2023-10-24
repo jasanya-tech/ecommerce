@@ -48,6 +48,17 @@
                                 <li><strong>Price</strong>: {{ GlobalHelper::formatRupiah($product->price) }}</li>
                                 <li><strong>Stock</strong>: {{ $product->stock }} pcs</li>
                             </ul>
+                            <div class="mb-3">
+                                <label for="quantity" class="form-label">Quantity:</label>
+                                <div class="input-group quantity-input">
+                                    <button type="button" class="quantity-button minus"
+                                        onclick="decreaseQuantity()">-</button>
+                                    <input type="number" id="quantity" name="quantity" class="form-control" min="1"
+                                        value="1" max="80">
+                                    <button type="button" class="quantity-button plus"
+                                        onclick="increaseQuantity()">+</button>
+                                </div>
+                            </div>
                             <a href="#" class="btn btn-primary">Add to Cart</a>
                             {{-- <a href="#" class="btn btn-success">Beli Sekarang</a> --}}
                         </div>
@@ -65,4 +76,23 @@
         </section><!-- End Portfolio Details Section -->
 
     </main><!-- End #main -->
+    @push('scripts')
+        <script>
+            function decreaseQuantity() {
+                var quantityInput = document.getElementById("quantity");
+                if (quantityInput.value > 1) {
+                    quantityInput.value = parseInt(quantityInput.value) - 1;
+                }
+            }
+
+            function increaseQuantity() {
+                var quantityInput = document.getElementById("quantity");
+                if (!parseInt(quantityInput.value) >= 80) {
+                    quantityInput.value = parseInt(quantityInput.value) + 1;
+                } else {
+                    quantityInput.value = "{{ $product->stock }}";
+                }
+            }
+        </script>
+    @endpush
 @endsection

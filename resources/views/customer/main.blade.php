@@ -36,6 +36,50 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+    <style>
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            width: 150px;
+            justify-content: space-between;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .quantity-button {
+            width: 30px;
+            height: 30px;
+            background: #f8f8f8;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .quantity-button:hover {
+            background: #357abf;
+            color: #fff;
+        }
+
+        .quantity-button.plus {
+            border-radius: 0 5px 5px 0;
+        }
+
+        .quantity-button.minus {
+            border-radius: 5px 0 0 5px;
+        }
+
+        input[type="number"] {
+            height: 30px;
+            width: 50px;
+            border: none;
+            text-align: center;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            outline: none;
+        }
+    </style>
 </head>
 
 <body>

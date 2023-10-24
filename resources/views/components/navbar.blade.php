@@ -37,8 +37,7 @@
                              </a>
                              <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                  <!-- Isi dropdown menu untuk pengguna di sini -->
-                                 <li><a class="dropdown-item" href="#">Profil Saya</a></li>
-                                 <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+                                 <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profil Saya</a></li>
                                  <li><a class="dropdown-item" href="{{ route('auth.logout') }}">Keluar</a></li>
                              </ul>
                          </li>

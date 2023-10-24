@@ -32,7 +32,7 @@ class UserController extends Controller
             'image' => 'required|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ], [
             'name.required' => 'nama tidak boleh dikosongkan',
-            'name.min' => 'minimal karakter 4',
+            'name.min' => 'minimal karakter 6',
             'email.required' => 'tidak boleh dikosongkan',
             'email.email' => 'invalid email',
             'email.unique' => 'email sudah terdaftar',
@@ -85,7 +85,7 @@ class UserController extends Controller
             'image' => 'mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ], [
             'name.required' => 'nama tidak boleh dikosongkan',
-            'name.min' => 'minimal karakter 4',
+            'name.min' => 'minimal karakter 6',
             'email.required' => 'tidak boleh dikosongkan',
             'email.email' => 'invalid email',
             'email.unique' => 'email sudah terdaftar',
@@ -130,6 +130,13 @@ class UserController extends Controller
                 'password' => bcrypt($data['password']),
             ]);
             FileHelper::deleteImage('users', $oldImage);
+        } else {
+            $user->update([
+                'email' => $data['email'],
+                'name' => $data['name'],
+                'phone_number' => $data['phone_number'],
+                'role' => $data['role'],
+            ]);
         }
 
         return redirect()->route('user.edit', $user->id)->with([

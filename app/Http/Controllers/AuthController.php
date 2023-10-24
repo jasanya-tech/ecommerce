@@ -48,6 +48,17 @@ class AuthController extends Controller
             'name' => 'required|min:6',
             'phone_number' => 'required|numeric|unique:users,phone_number',
             'password' => 'required|confirmed|min:6',
+        ], [
+            'password.min' => 'minimal karakter 6',
+            'password.required' => 'tidak boleh dikosongkan',
+            'password.confirmed' => 'password dan konfirmasi password tidak sesuai',
+            'phone_number.required' => 'tidak boleh dikosongkan',
+            'phone_number.numeric' => 'harus berupa angka',
+            'phone_number.unique' => 'nomor handphone sudah terdaftar',
+            'name.required' => 'tidak boleh dikosongkan',
+            'name.numeric' => 'minimal karakter 6',
+            'email.email' => 'invalid email',
+            'email.euniquemail' => 'email sudah terdaftar',
         ]);
 
         $user = User::create([

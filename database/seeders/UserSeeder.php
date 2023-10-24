@@ -24,6 +24,14 @@ class UserSeeder extends Seeder
                 'phone_number' => '08123456789',
                 'password' => bcrypt('123'),
             ],
+            [
+                'role' => 2,
+                'name' => 'ramaaaa',
+                'email' => 'rama@gmail.com',
+                'image' => 'default.jpg',
+                'phone_number' => '08123456789',
+                'password' => bcrypt('123'),
+            ],
         ];
 
         DB::table('users')->insert($admin);

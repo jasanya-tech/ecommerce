@@ -94,7 +94,6 @@ class UserController extends Controller
             'phone_number.numeric' => 'harus berupa angka',
             'password.min' => 'minimal karakter 6',
             'role.required' => 'tidak boleh dikosongkan',
-            'image.max' => 'maximal 10 image',
             'image.max' => 'maximal 2mb',
             'image.mimes' => 'invalid image, image harus jpeg,png,jpg,gif,svg,webp',
         ]);

@@ -49,7 +49,6 @@ class ProfileController extends Controller
         $data = $request->validate([
             'image' => 'mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ], [
-            'image.max' => 'maximal 10 image',
             'image.max' => 'maximal 2mb',
             'image.mimes' => 'invalid image, image harus jpeg,png,jpg,gif,svg,webp',
         ]);

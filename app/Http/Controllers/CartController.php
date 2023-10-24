@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Payment;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +23,7 @@ class CartController extends Controller
             'title' => 'cart',
             'cartItems' => $cartItems,
             'cartSubtotal' => $cartSubtotal,
+            'payments' => Payment::all(),
         ]);
     }
 
@@ -103,7 +105,7 @@ class CartController extends Controller
 
 
         return back()->with([
-            'success' => 'Produk telah ditambahkan ke keranjang.'
+            'success' => 'Produk telah diupdate ke keranjang.'
         ]);
     }
 

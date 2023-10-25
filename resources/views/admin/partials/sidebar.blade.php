@@ -76,6 +76,13 @@
                                 <p>User</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('order.index') }}"
+                                class="nav-link {{ GlobalHelper::isCurrentUrl('admin/master/order*') }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Order</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
             </ul>

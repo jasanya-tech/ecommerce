@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Dashboard;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
@@ -63,4 +64,7 @@ Route::middleware(['admin'])->group(function () {
 
     Route::resource('/admin/master/user', UserController::class);
     Route::get('/admin/master/user/{user}', [UserController::class, 'show'])->name('user.show');
+
+    Route::resource('/admin/master/order', AdminOrderController::class);
+    Route::get('/admin/master/order/{order}', [AdminOrderController::class, 'show'])->name('order.show');
 });

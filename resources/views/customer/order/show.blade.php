@@ -53,7 +53,11 @@
                                         <tbody>
                                             @foreach ($order->listOrder as $item)
                                                 <tr>
-                                                    <td>{{ $item->product->name }}</td>
+                                                    <td>
+                                                        <a href="{{ route('product.user.show', $item->product->id) }}">
+                                                            {{ $item->product->name }}
+                                                        </a>
+                                                    </td>
                                                     <td>{{ GlobalHelper::formatRupiah($item->product->price) }}</td>
                                                     <td>{{ $item->quantity }}</td>
                                                     <td>{{ GlobalHelper::formatRupiah($item->sub_total) }}</td>

@@ -14,12 +14,16 @@
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <span style="color: #009970">
-                                        Detail Pesanan #
+                                        Nomor Pesanan #
                                     </span>
                                     {{ $order->invoice }}
                                 </h5>
                                 <table class="table">
                                     <tbody>
+                                        <tr>
+                                            <th scope="row">Nomor Resi</th>
+                                            <td>{{ $order->no_resi }}</td>
+                                        </tr>
                                         <tr>
                                             <th scope="row">Tanggal Pemesanan</th>
                                             <td>{{ $order->created_at->timezone('Asia/Jakarta') }}</td>
@@ -78,8 +82,22 @@
                                     <img src="{{ FileHelper::getImage('orders/' . $order->payment_proof) }}"
                                         class="img-fluid" alt="Bukti Pembayaran">
                                 @else
-                                    <p>Bukti pembayaran belum diunggah.</p>
+                                    <p>Silahkan unggah bukti pembayaran Anda.</p>
+                                    <!-- Add a form to upload payment proof -->
+                                    <form method="POST" action="{{ route('user.order.update.paymentProof', $order->id) }}"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="file" name="payment_proof" required>
+                                        <button type="submit" class="btn btn-primary">Unggah Bukti Pembayaran</button>
+                                        @error('payment_proof')
+                                            <span class="help-block" style="color:red;">{{ $message }}</span>
+                                        @enderror
+                                    </form>
                                 @endif
+                                <br>
+                                <small>Anda dapat menghubungi kami di nomor telepon berikut jika mengalami kendala:
+                                    0895322021652</small>
                             </div>
                         </div>
                     </div>

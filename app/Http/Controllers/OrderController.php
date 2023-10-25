@@ -52,14 +52,11 @@ class OrderController extends Controller
         }
 
         $data = $request->validate([
-            'payment_proof' => 'mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'payment' => 'required',
             'address' => 'required',
             'additional_note' => 'nullable',
             'quantity' => 'required|numeric|min:1',
         ], [
-            'payment_proof.max' => 'maximal 2mb',
-            'payment_proof.mimes' => 'invalid bukti pembayaran, bukti pembayaran harus jpeg,png,jpg,gif,svg,webp',
             'payment.required' => 'tidak boleh dikosongkan',
             'address.required' => 'tidak boleh dikosongkan',
             'quantity.required' => 'tidak boleh dikosongkan',
@@ -79,7 +76,7 @@ class OrderController extends Controller
             );
         }
 
-        $paymentProof = FileHelper::optimizeAndUploadPicture($data['payment_proof'], 'orders');
+        // $paymentProof = FileHelper::optimizeAndUploadPicture($data['payment_proof'], 'orders');
 
         try {
             DB::beginTransaction();
@@ -92,7 +89,7 @@ class OrderController extends Controller
                 'user_id' => $data['user_id'],
                 'payment_id' => $data['payment'],
                 'address' => $data['address'],
-                'payment_proof' => $paymentProof,
+                // 'payment_proof' => $paymentProof,
                 'additional_note' => $data['additional_note'],
                 'status' => 'Silahkan Lakukan Pembayaran',
                 'total' => $data['quantity'] * $product->price,
@@ -106,14 +103,14 @@ class OrderController extends Controller
             ]);
 
             DB::commit();
-            return redirect()->route('user.order.index')->with(
+            return redirect()->route('user.order.show', $order->id)->with(
                 'success',
                 'order telah berhasil dibuat '
             );
         } catch (\Throwable $th) {
             DB::rollBack();
 
-            FileHelper::deleteImage('orders', $data['payment_proof']);
+            // FileHelper::deleteImage('orders', $data['payment_proof']);
 
             return back()->with(
                 'error',
@@ -138,7 +135,7 @@ class OrderController extends Controller
         $data['invoice'] = Ulid::generate();
         $data['user_id'] = Auth::id();
 
-        $paymentProof = FileHelper::optimizeAndUploadPicture($data['payment_proof'], 'orders');
+        // $paymentProof = FileHelper::optimizeAndUploadPicture($data['payment_proof'], 'orders');
         $carts = Cart::where('user_id', $data['user_id'])->orderBy('id', 'DESC')->get();
 
         $error = 1;
@@ -162,7 +159,7 @@ class OrderController extends Controller
                 'user_id' => $data['user_id'],
                 'payment_id' => $data['payment'],
                 'address' => $data['address'],
-                'payment_proof' => $paymentProof,
+                // 'payment_proof' => $paymentProof,
                 'additional_note' => $data['additional_note'],
                 'status' => 'Silahkan Lakukan Pembayaran',
                 'total' => $totalPrice,
@@ -179,14 +176,14 @@ class OrderController extends Controller
             }
 
             DB::commit();
-            return redirect()->route('user.order.index')->with(
+            return redirect()->route('user.order.show', $order->id)->with(
                 'success',
                 'order telah berhasil dibuat '
             );
         } catch (\Throwable $th) {
             DB::rollBack();
 
-            FileHelper::deleteImage('orders', $data['payment_proof']);
+            // FileHelper::deleteImage('orders', $data['payment_proof']);
 
             if ($error == 2) {
                 return back()->with(
@@ -199,5 +196,26 @@ class OrderController extends Controller
                 'maaf terjadi kesalah sistem ' . $th->getMessage()
             );
         }
+    }
+
+    public function uploadPaymentProof(Request $request, Order $order)
+    {
+        $data = $request->validate([
+            'payment_proof' => 'mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+        ], [
+            'payment_proof.max' => 'maximal 2mb',
+            'payment_proof.mimes' => 'invalid bukti pembayaran, bukti pembayaran harus jpeg,png,jpg,gif,svg,webp',
+        ]);
+
+        $paymentProof = FileHelper::optimizeAndUploadPicture($data['payment_proof'], 'orders');
+
+        $order->update([
+            'payment_proof' => $paymentProof,
+        ]);
+
+        return redirect()->route('user.order.show', $order->id)->with(
+            'success',
+            'order, upload bukti pembayaran berhasil'
+        );
     }
 }

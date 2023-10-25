@@ -12,7 +12,8 @@
                     @if ($cartItems->isEmpty())
                         <!-- Pesan ketika keranjang kosong -->
                         <div class="col-md-12">
-                            <p>Keranjang Anda kosong. Silakan <a href="{{ route('product.user.index') }}">berbelanja</a>.</p>
+                            <p>Keranjang Anda kosong. Silakan <a href="{{ route('product.user.index') }}">berbelanja</a>.
+                            </p>
                         </div>
                     @else
                         <div class="col-md-8">
@@ -125,22 +126,6 @@
                                 <span class="help-block" style="color:red;">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="mb-3" style="display: none" id="no_rek_display">
-                            <label for="no_rek" class="form-label">Nomor Rekening:</label>
-                            <input type="text" class="form-control" id="no_rek" name="no_rek"
-                                value="{{ old('no_rek') }}" readonly required>
-                            <small>*Silahkan Transfer Ke Nomor Rekening di atas dan upload bukti pembayaran</small>
-                            @error('no_rek')
-                                <span class="help-block" style="color:red;">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="payment_proof" class="form-label">Upload Bukti Pembayaran:</label>
-                            <input required type="file" class="form-control" id="payment_proof" name="payment_proof">
-                            @error('payment_proof')
-                                <span class="help-block" style="color:red;">{{ $message }}</span>
-                            @enderror
-                        </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Alamat Detail:</label>
                             <textarea required class="form-control" id="address" name="address" rows="2">{{ old('address') }}</textarea>
@@ -171,8 +156,6 @@
 
                 if (hasError) {
                     $('#paymentModal').modal('show');
-                    const bankAccountNumberDisplay = document.getElementById("no_rek_display");
-                    bankAccountNumberDisplay.style.display = 'block';
                 }
 
                 $('#openPaymentModal').click(function() {
@@ -195,18 +178,13 @@
             document.addEventListener("DOMContentLoaded", function() {
                 const bankNameSelect = document.getElementById("payment");
                 const bankAccountNumber = document.getElementById("no_rek");
-                const bankAccountNumberDisplay = document.getElementById("no_rek_display");
 
                 bankNameSelect.addEventListener("change", function() {
                     @foreach ($payments as $payment)
                         if (bankNameSelect.value === "{{ $payment->id }}") {
                             bankAccountNumber.value = "{{ $payment->no_rek }}";
-                            bankAccountNumberDisplay.style.display = 'block';
                         }
                     @endforeach
-                    if (bankNameSelect.value === "") {
-                        bankAccountNumberDisplay.style.display = 'none';
-                    }
                 });
             });
         </script>

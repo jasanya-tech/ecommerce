@@ -46,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/order/{product}', [OrderController::class, 'create'])->name('user.order.create');
     Route::post('/order', [OrderController::class, 'store'])->name('user.order.store');
     Route::post('/order/from-cart', [OrderController::class, 'storeFromCart'])->name('user.order.store.from.cart');
+    Route::put('/order/update/payment/{order}', [OrderController::class, 'uploadPaymentProof'])->name('user.order.update.paymentProof');
 });
 
 Route::middleware(['guest'])->group(function () {

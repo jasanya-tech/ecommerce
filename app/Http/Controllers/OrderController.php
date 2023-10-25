@@ -20,7 +20,7 @@ class OrderController extends Controller
     {
         return view('customer.order.index', [
             'title' => 'cart',
-            'orders' => Order::orderBy('id', 'DESC')->get(),
+            'orders' => Order::filter(request(['search', 'status_filter', 'sort_option']))->get(),
         ]);
     }
 

@@ -4,8 +4,70 @@
     <main id="main">
         <section id="order-list" class="portfolio mt-5">
             <div class="container">
-                <div class="section-title" data-aos="fade-left">
+                <div class="section-title d-flex justify-content-between" data-aos="fade-left">
                     <h2>Daftar Pesanan</h2>
+                    <div class="d-flex">
+                        <div class="dropdown m-2">
+                            <button class="btn btn-secondary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#filter-collapse" aria-expanded="false" aria-controls="filter-collapse">
+                                Filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Filter Collapse - Hidden by default -->
+                <div class="collapse mb-2" id="filter-collapse">
+                    <div class="card card-body">
+                        <form action="">
+                            <!-- Sort by Price -->
+                            <div class="mb-3">
+                                <label for="sort">Sort by:</label>
+                                <div class="input-group">
+                                    <select id="sort" class="form-select" name="sort_option">
+                                        <option value="">All</option>
+                                        <option value="created_at_asc" @selected(request()->sort_option == 'created_at_asc')>
+                                            tanggal
+                                            pesanan (asc)
+                                        </option>
+                                        <option value="created_at_desc" @selected(request()->sort_option == 'created_at_desc')>
+                                            tanggal
+                                            pesanan
+                                            (desc)
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="filter">Filter by Status:</label>
+                                <select id="filter" class="form-select" name="status_filter">
+                                    <option value="">All</option>
+                                    <option value="Pesanan Diproses" @selected(request()->status_filter == 'Pesanan Diproses')>
+                                        Pesanan Diproses
+                                    </option>
+                                    <option value="Pesanan Dikirim" @selected(request()->status_filter == 'Pesanan Dikirim')>
+                                        Pesanan Dikirim
+                                    </option>
+                                    <option value="Pesanan Diterima" @selected(request()->status_filter == 'Pesanan Diterima')>
+                                        Pesanan Diterima
+                                    </option>
+                                    <option value="Pesanan Dibatalkan" @selected(request()->status_filter == 'Pesanan Dibatalkan')>
+                                        Pesanan Dibatalkan
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="d-flex justify-content-left">
+                                <button type="submit" class="btn btn-primary m-1" id="apply-button">
+                                    Apply
+                                </button>
+                                <a href="{{ url()->current() }}" class="btn btn-secondary m-1" id="clear-button">
+                                    Clear
+                                </a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="row" data-aos="fade-up" data-aos-delay="100">

@@ -7,11 +7,11 @@
                 <div class="col-lg-5 col-md-6 footer-contact">
                     <h3>{{ env('APP_COMPANY') }}</h3>
                     <p>
-                        A108 Adam Street <br>
-                        New York, NY 535022<br>
-                        United States <br><br>
-                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        Cengkareng <br>
+                        Jakarta Barat<br>
+                        Indonesia <br><br>
+                        <strong>Phone:</strong> +62 895 3220 21652<br>
+                        <strong>Email:</strong> zaqiasyifa@gmail.com<br>
                     </p>
                 </div>
 

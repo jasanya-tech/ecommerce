@@ -88,8 +88,9 @@
                                     <h5 class="cart-summary-title">Cart Summary</h5>
                                     <p class="cart-summary-total">Total:
                                         {{ GlobalHelper::formatRupiah($cartSubtotal) }}
-                                        <br><small>*Jika anda membutuhkan bantuan, silahkan hubungi admin kami
-                                            <strong>08819238999</strong></small>
+                                        <br><small>*Anda dapat menghubungi kami di nomor telepon berikut jika mengalami
+                                            kendala:
+                                            <strong>0895322021652</strong></small>
                                     </p>
                                     <button type="button" class="btn btn-success" id="openPaymentModal">Checkout</button>
                                 </div>

@@ -24,6 +24,12 @@
                                     @csrf
 
                                     <div class="form-group">
+                                        <label for="no_resi">Nomor Resi</label>
+                                        <input type="text" class="form-control" id="no_resi" name="no_resi"
+                                            value="{{ old('no_resi') }}">
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="user_id">Pilih User</label>
                                         <select class="form-control" id="user_id" name="user_id">
                                             @foreach ($users as $user)

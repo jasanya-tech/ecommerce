@@ -21,6 +21,11 @@
                         <div class="card card-primary">
                             <div class="card-body">
                                 <div class="form-group">
+                                    <label for="name">No. Resi</label>
+                                    <input type="text" class="form-control" value="{{ $order->no_resi }}" readonly>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="name">No. Pesanan</label>
                                     <input type="text" class="form-control" value="{{ $order->invoice }}" readonly>
                                 </div>
@@ -55,8 +60,12 @@
                                 <div class="form-group">
                                     <label for="images">Bukti Pembayaran</label>
                                     <div class="col-md-3">
-                                        <img src="{{ FileHelper::getImage('orders/' . $order->payment_proof) }}"
-                                            class="img-fluid" alt="Product Image">
+                                        @if ($order->payment_proof)
+                                            <img src="{{ FileHelper::getImage('orders/' . $order->payment_proof) }}"
+                                                class="img-fluid" alt="Product Image">
+                                        @else
+                                            <p>Belum mengunggah bukti transaksi</p>
+                                        @endif
                                     </div>
                                 </div>
 
@@ -71,7 +80,8 @@
                                                     <div class="card-body">
                                                         <h5 class="card-title">{{ $listOrder->product->name }}</h5>
                                                         <p class="card-text">Harga:
-                                                            {{ GlobalHelper::formatRupiah($listOrder->product->price) }}</p>
+                                                            {{ GlobalHelper::formatRupiah($listOrder->product->price) }}
+                                                        </p>
                                                         <p class="card-text">Jumlah: {{ $listOrder->quantity }}</p>
                                                         <p class="card-text">Sub Total:
                                                             {{ GlobalHelper::formatRupiah($listOrder->sub_total) }}</p>

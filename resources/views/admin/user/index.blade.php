@@ -94,56 +94,59 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 10px">No</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Nomer Handphone</th>
-                                            <th>Role</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($users as $user)
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>{{ $user->phone_number }}</td>
-                                                <td>{{ $user->role == 1 ? 'admin' : 'member' }}</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                            data-toggle="dropdown">
-                                                            &#8942; <!-- Ini adalah karakter Unicode untuk tiga titik -->
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item"
-                                                                href="{{ route('user.edit', $user->id) }}">
-                                                                <i class="fas fa-edit"></i> Edit
-                                                            </a>
-                                                            <a class="dropdown-item"
-                                                                href="{{ route('user.show', $user->id) }}">
-                                                                <i class="fas fa-eye"></i> Show
-                                                            </a>
-                                                            <form action="{{ route('user.destroy', $user->id) }}"
-                                                                method="POST" class="delete-form">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <a class="dropdown-item" href="#"
-                                                                    onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus user ini, jika anda menghapus user ini, maka data pesanan akan dihapus?');">
-                                                                    <i class="fas fa-trash-alt"></i> Delete
-                                                                </a>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                                <th style="width: 10px">No</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Nomer Handphone</th>
+                                                <th>Role</th>
+                                                <th>Action</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($users as $user)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $user->name }}</td>
+                                                    <td>{{ $user->email }}</td>
+                                                    <td>{{ $user->phone_number }}</td>
+                                                    <td>{{ $user->role == 1 ? 'admin' : 'member' }}</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-default dropdown-toggle"
+                                                                data-toggle="dropdown">
+                                                                &#8942;
+                                                                <!-- Ini adalah karakter Unicode untuk tiga titik -->
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('user.edit', $user->id) }}">
+                                                                    <i class="fas fa-edit"></i> Edit
+                                                                </a>
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('user.show', $user->id) }}">
+                                                                    <i class="fas fa-eye"></i> Show
+                                                                </a>
+                                                                <form action="{{ route('user.destroy', $user->id) }}"
+                                                                    method="POST" class="delete-form">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <a class="dropdown-item" href="#"
+                                                                        onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus user ini, jika anda menghapus user ini, maka data pesanan akan dihapus?');">
+                                                                        <i class="fas fa-trash-alt"></i> Delete
+                                                                    </a>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="card-footer clearfix">
                                 <ul class="pagination pagination-sm m-0 float-right">

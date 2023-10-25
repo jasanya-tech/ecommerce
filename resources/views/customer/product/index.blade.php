@@ -24,7 +24,7 @@
                         <form action="">
                             <!-- Sort by Price -->
                             <div class="mb-3">
-                                <label for="sort-price" class="form-label">Sort by Price</label>
+                                <label for="sort-price" class="form-label">Sort by:</label>
                                 <select id="sort" class="form-select" name="sort_option">
                                     <option value="">All</option>
                                     <option value="name_asc" @selected(request()->sort_option == 'name_asc')>Name (asc)

@@ -57,46 +57,50 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 10px">No</th>
-                                            <th>Name</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($categories as $category)
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $category->name }}</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                            data-toggle="dropdown">
-                                                            &#8942; <!-- Ini adalah karakter Unicode untuk tiga titik -->
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item"
-                                                                href="{{ route('category.edit', $category->id) }}">
-                                                                <i class="fas fa-edit"></i> Edit
-                                                            </a>
-                                                            <form action="{{ route('category.destroy', $category->id) }}"
-                                                                method="POST" class="delete-form">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <a class="dropdown-item" href="#"
-                                                                    onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus kategori ini, jika anda menghapus kategori ini, maka data product yang berkategori ini akan dihapus?');">
-                                                                    <i class="fas fa-trash-alt"></i> Delete
-                                                                </a>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                                <th style="width: 10px">No</th>
+                                                <th>Name</th>
+                                                <th>Action</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($categories as $category)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $category->name }}</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-default dropdown-toggle"
+                                                                data-toggle="dropdown">
+                                                                &#8942;
+                                                                <!-- Ini adalah karakter Unicode untuk tiga titik -->
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('category.edit', $category->id) }}">
+                                                                    <i class="fas fa-edit"></i> Edit
+                                                                </a>
+                                                                <form
+                                                                    action="{{ route('category.destroy', $category->id) }}"
+                                                                    method="POST" class="delete-form">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <a class="dropdown-item" href="#"
+                                                                        onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus kategori ini, jika anda menghapus kategori ini, maka data product yang berkategori ini akan dihapus yang akan menghapus data list pesanan juga?');">
+                                                                        <i class="fas fa-trash-alt"></i> Delete
+                                                                    </a>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="card-footer clearfix">
                                 <ul class="pagination pagination-sm m-0 float-right">

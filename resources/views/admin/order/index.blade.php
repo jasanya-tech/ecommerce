@@ -100,58 +100,63 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 10px">No</th>
-                                            <th>No. Pesanan</th>
-                                            <th>Tanggal Pesanan</th>
-                                            <th>Total Harga</th>
-                                            <th>Status</th>
-                                            <th>Pembayaran</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($orders as $order)
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $order->invoice }}</td>
-                                                <td>{{ $order->created_at->timezone('Asia/Jakarta') }}</td>
-                                                <td>{{ GlobalHelper::formatRupiah($order->total) }}</td>
-                                                <td>{{ $order->status }}</td>
-                                                <td>{{ $order->payment->name }}</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                            data-toggle="dropdown">
-                                                            &#8942; <!-- Ini adalah karakter Unicode untuk tiga titik -->
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item"
-                                                                href="{{ route('order.edit', $order->id) }}">
-                                                                <i class="fas fa-edit"></i> Edit
-                                                            </a>
-                                                            <a class="dropdown-item"
-                                                                href="{{ route('order.show', $order->id) }}">
-                                                                <i class="fas fa-eye"></i> Show
-                                                            </a>
-                                                            <form action="{{ route('order.destroy', $order->id) }}"
-                                                                method="POST" class="delete-form">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <a class="dropdown-item" href="#"
-                                                                    onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus pesanan ini?');">
-                                                                    <i class="fas fa-trash-alt"></i> Delete
-                                                                </a>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                                <th style="width: 10px">No</th>
+                                                <th>No. Pesanan</th>
+                                                <th>No. Resi</th>
+                                                <th>Tanggal Pesanan</th>
+                                                <th>Total Harga</th>
+                                                <th>Status</th>
+                                                <th>Pembayaran</th>
+                                                <th>Action</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($orders as $order)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $order->invoice }}</td>
+                                                    <td>{{ $order->no_resi }}</td>
+                                                    <td>{{ $order->created_at->timezone('Asia/Jakarta') }}</td>
+                                                    <td>{{ GlobalHelper::formatRupiah($order->total) }}</td>
+                                                    <td>{{ $order->status }}</td>
+                                                    <td>{{ $order->payment->name }}</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-default dropdown-toggle"
+                                                                data-toggle="dropdown">
+                                                                &#8942;
+                                                                <!-- Ini adalah karakter Unicode untuk tiga titik -->
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('order.edit', $order->id) }}">
+                                                                    <i class="fas fa-edit"></i> Edit
+                                                                </a>
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('order.show', $order->id) }}">
+                                                                    <i class="fas fa-eye"></i> Show
+                                                                </a>
+                                                                <form action="{{ route('order.destroy', $order->id) }}"
+                                                                    method="POST" class="delete-form">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <a class="dropdown-item" href="#"
+                                                                        onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus pesanan ini?');">
+                                                                        <i class="fas fa-trash-alt"></i> Delete
+                                                                    </a>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="card-footer clearfix">
                                 <ul class="pagination pagination-sm m-0 float-right">

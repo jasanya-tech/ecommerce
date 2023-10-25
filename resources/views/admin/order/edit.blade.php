@@ -24,6 +24,13 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
+
+                                    <div class="form-group">
+                                        <label for="no_resi">No Resi</label>
+                                        <input type="number" class="form-control" id="no_resi" name="no_resi"
+                                            min="1" value="{{ old('no_resi', $order->no_resi) }}">
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="user_id">Pilih User</label>
                                         <select class="form-control" id="user_id" name="user_id">
@@ -147,6 +154,9 @@
                                         @error('payment_proof')
                                             <span class="help-block" style="color:red;">{{ $message }}</span>
                                         @enderror
+                                        @if (!$order->payment_proof)
+                                            <p>Belum mengunggah bukti transaksi</p>
+                                        @endif
                                     </div>
 
                                     <button type="submit" class="btn btn-primary">Buat Pesanan</button>

@@ -35,12 +35,13 @@ class OrderController extends Controller
         $newRequest = $request->duplicate(null, $request->all());
         $newRequest->request->set('selected_products', $selectedProducts);
         $data = $newRequest->validate([
-            'user_id' => 'required|integer', // Sesuaikan aturan validasi sesuai kebutuhan Anda
+            'user_id' => 'required|integer',
+            'no_resi' => 'nullable',
             'payment' => 'required|integer',
             'address' => 'required|string',
             'additional_note' => 'string|nullable',
-            'payment_proof' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Sesuaikan aturan validasi untuk gambar
-            'selected_products' => 'required|array|min:1', // Pastikan setidaknya ada satu produk yang dipilih
+            'payment_proof' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'selected_products' => 'required|array|min:1',
             'selected_products.*.productId' => 'required|integer',
             'selected_products.*.quantity' => 'required|integer|min:1',
             'status' => 'required'
@@ -76,6 +77,7 @@ class OrderController extends Controller
             $order->payment_proof = $paymentProof;
             $order->status = $data['status'];
             $order->invoice = $data['invoice'];
+            $order->no_resi = $data['no_resi'];
             $order->total = $total;
             $order->save();
 
@@ -134,12 +136,13 @@ class OrderController extends Controller
         $newRequest = $request->duplicate(null, $request->all());
         $newRequest->request->set('selected_products', $selectedProducts);
         $data = $newRequest->validate([
-            'user_id' => 'required|integer', // Sesuaikan aturan validasi sesuai kebutuhan Anda
+            'user_id' => 'required|integer',
             'payment' => 'required|integer',
+            'no_resi' => 'nullable',
             'address' => 'required|string',
             'additional_note' => 'string|nullable',
-            'payment_proof' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Sesuaikan aturan validasi untuk gambar
-            'selected_products' => 'required|array|min:1', // Pastikan setidaknya ada satu produk yang dipilih
+            'payment_proof' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'selected_products' => 'required|array|min:1',
             'selected_products.*.productId' => 'required|integer',
             'selected_products.*.quantity' => 'required|integer|min:1',
             'status' => 'required'
@@ -176,6 +179,7 @@ class OrderController extends Controller
                 'address' => $request->input('address'),
                 'additional_note' => $request->input('additional_note'),
                 'status' => $data['status'],
+                'no_resi' => $data['no_resi'],
                 'total' => $total,
             ]);
 

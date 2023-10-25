@@ -159,56 +159,59 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 10px">No</th>
-                                            <th>Name</th>
-                                            <th>Category</th>
-                                            <th>Price</th>
-                                            <th>Stock</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($products as $product)
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $product->name }}</td>
-                                                <td>{{ $product->category->name }}</td>
-                                                <td>{{ GlobalHelper::formatRupiah($product->price) }}</td>
-                                                <td>{{ $product->stock }} pcs</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                            data-toggle="dropdown">
-                                                            &#8942; <!-- Ini adalah karakter Unicode untuk tiga titik -->
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item"
-                                                                href="{{ route('product.edit', $product->id) }}">
-                                                                <i class="fas fa-edit"></i> Edit
-                                                            </a>
-                                                            <a class="dropdown-item"
-                                                                href="{{ route('product.show', $product->id) }}">
-                                                                <i class="fas fa-eye"></i> Show
-                                                            </a>
-                                                            <form action="{{ route('product.destroy', $product->id) }}"
-                                                                method="POST" class="delete-form">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <a class="dropdown-item" href="#"
-                                                                    onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus product ini, jika anda menghapus product ini, maka data pesanan akan dihapus?');">
-                                                                    <i class="fas fa-trash-alt"></i> Delete
-                                                                </a>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                                <th style="width: 10px">No</th>
+                                                <th>Name</th>
+                                                <th>Category</th>
+                                                <th>Price</th>
+                                                <th>Stock</th>
+                                                <th>Action</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($products as $product)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $product->name }}</td>
+                                                    <td>{{ $product->category->name }}</td>
+                                                    <td>{{ GlobalHelper::formatRupiah($product->price) }}</td>
+                                                    <td>{{ $product->stock }} pcs</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-default dropdown-toggle"
+                                                                data-toggle="dropdown">
+                                                                &#8942;
+                                                                <!-- Ini adalah karakter Unicode untuk tiga titik -->
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('product.edit', $product->id) }}">
+                                                                    <i class="fas fa-edit"></i> Edit
+                                                                </a>
+                                                                <a class="dropdown-item"
+                                                                    href="{{ route('product.show', $product->id) }}">
+                                                                    <i class="fas fa-eye"></i> Show
+                                                                </a>
+                                                                <form action="{{ route('product.destroy', $product->id) }}"
+                                                                    method="POST" class="delete-form">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <a class="dropdown-item" href="#"
+                                                                        onclick="confirmPopup(this,'Apakah Anda yakin ingin menghapus product ini, jika anda menghapus product ini, maka data list pesanan akan dihapus?');">
+                                                                        <i class="fas fa-trash-alt"></i> Delete
+                                                                    </a>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="card-footer clearfix">
                                 <ul class="pagination pagination-sm m-0 float-right">

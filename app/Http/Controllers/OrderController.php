@@ -94,7 +94,7 @@ class OrderController extends Controller
                 'address' => $data['address'],
                 'payment_proof' => $paymentProof,
                 'additional_note' => $data['additional_note'],
-                'status' => 'Pesanan Diproses',
+                'status' => 'Silahkan Lakukan Pembayaran',
                 'total' => $data['quantity'] * $product->price,
             ]);
 
@@ -164,7 +164,7 @@ class OrderController extends Controller
                 'address' => $data['address'],
                 'payment_proof' => $paymentProof,
                 'additional_note' => $data['additional_note'],
-                'status' => 'Pesanan Diproses',
+                'status' => 'Silahkan Lakukan Pembayaran',
                 'total' => $totalPrice,
             ]);
             // 80k1 sisa 2

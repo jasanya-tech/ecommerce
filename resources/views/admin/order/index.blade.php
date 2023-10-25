@@ -48,6 +48,10 @@
                                                     <div class="input-group">
                                                         <select id="filter" class="custom-select" name="status_filter">
                                                             <option value="">All</option>
+                                                            <option value="Silahkan Lakukan Pembayaran"
+                                                                @selected(request()->status_filter == 'Silahkan Lakukan Pembayaran')>
+                                                                Silahkan Lakukan Pembayaran
+                                                            </option>
                                                             <option value="Pesanan Diproses" @selected(request()->status_filter == 'Pesanan Diproses')>
                                                                 Pesanan Diproses
                                                             </option>

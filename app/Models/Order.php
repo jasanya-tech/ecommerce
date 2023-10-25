@@ -32,6 +32,8 @@ class Order extends Model
                 $query->where('status', '=', "Pesanan Diterima");
             } elseif ($filters === "Pesanan Dibatalkan") {
                 $query->where('status', '=', "Pesanan Dibatalkan");
+            } elseif ($filters === "Silahkan Lakukan Pembayaran") {
+                $query->where('status', '=', "Silahkan Lakukan Pembayaran");
             }
         })->when($filters['search'] ?? false, function ($query, $search) {
             $query->where(function ($query) use ($search) {

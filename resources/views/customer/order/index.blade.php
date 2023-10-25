@@ -43,6 +43,9 @@
                                 <label for="filter">Filter by Status:</label>
                                 <select id="filter" class="form-select" name="status_filter">
                                     <option value="">All</option>
+                                    <option value="Silahkan Lakukan Pembayaran" @selected(request()->status_filter == 'Silahkan Lakukan Pembayaran')>
+                                        Silahkan Lakukan Pembayaran
+                                    </option>
                                     <option value="Pesanan Diproses" @selected(request()->status_filter == 'Pesanan Diproses')>
                                         Pesanan Diproses
                                     </option>

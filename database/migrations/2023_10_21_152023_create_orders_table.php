@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('invoice')->unique();
+            $table->string('no_resi')->unique();
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->foreignId('payment_id')->nullable()->constrained('payments')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->string('address');

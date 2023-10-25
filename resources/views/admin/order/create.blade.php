@@ -122,6 +122,9 @@
                                     <div class="form-group">
                                         <label for="status">Status Pesanan</label>
                                         <select class="form-control" id="status" name="status" required>
+                                            <option value="Silahkan Lakukan Pembayaran"
+                                                @if (old('status') == 'Silahkan Lakukan Pembayaran') selected @endif>Silahkan Lakukan
+                                                Pembayaran</option>
                                             <option value="Pesanan Diproses"
                                                 @if (old('status') == 'Pesanan Diproses') selected @endif>Pesanan Diproses</option>
                                             <option value="Pesanan Dikirim"

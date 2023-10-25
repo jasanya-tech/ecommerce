@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Dashboard;
+use App\Http\Controllers\Admin\ExportController;
+use App\Http\Controllers\Admin\LaporanController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UserController;
@@ -68,4 +70,8 @@ Route::middleware(['admin'])->group(function () {
 
     Route::resource('/admin/master/order', AdminOrderController::class);
     Route::get('/admin/master/order/{order}', [AdminOrderController::class, 'show'])->name('order.show');
+
+    Route::get('/admin/report/pengiriman', [LaporanController::class, 'indexPengiriman'])->name('report.index.pengiriman');
+    Route::get('/admin/report/transaction', [LaporanController::class, 'indexTransaction'])->name('report.index.transaction');
+    Route::get('/admin/report/transaction/{type}', [ExportController::class, 'exportTransaction'])->name('report.print.transaction');
 });

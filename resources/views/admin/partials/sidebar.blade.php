@@ -45,7 +45,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">Master</li>
+                <li class="nav-header"></li>
                 <li class="nav-item {{ GlobalHelper::isCurrentUrl('admin/master/*', 'menu-open') }}">
                     <a href="#" class="nav-link {{ GlobalHelper::isCurrentUrl('admin/master/*') }}">
                         <i class="nav-icon fas fa-table"></i>
@@ -81,6 +81,32 @@
                                 class="nav-link {{ GlobalHelper::isCurrentUrl('admin/master/order*') }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Order</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item {{ GlobalHelper::isCurrentUrl('admin/report/*', 'menu-open') }}">
+                    <a href="#" class="nav-link {{ GlobalHelper::isCurrentUrl('admin/report/*') }}">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Laporan
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        {{-- <li class="nav-item ">
+                            <a href="{{ route('report.index.pengiriman') }}"
+                                class="nav-link {{ GlobalHelper::isCurrentUrl('admin/report/pengiriman*') }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Pengiriman</p>
+                            </a>
+                        </li> --}}
+                        <li class="nav-item ">
+                            <a href="{{ route('report.index.transaction') }}"
+                                class="nav-link {{ GlobalHelper::isCurrentUrl('admin/report/transaction*') }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Transaction</p>
                             </a>
                         </li>
                     </ul>

@@ -78,7 +78,9 @@
                                                     <img src="{{ FileHelper::getImage('/products/' . $listOrder->product->name . '/' . $listOrder->product->image[0]->image) }}"
                                                         class="card-img-top" alt="Product Image">
                                                     <div class="card-body">
-                                                        <h5 class="card-title">{{ $listOrder->product->name }}</h5>
+                                                        <a href="{{ route('product.show', $listOrder->product->id) }}">
+                                                            <h5 class="card-title">{{ $listOrder->product->name }}</h5>
+                                                        </a>
                                                         <p class="card-text">Harga:
                                                             {{ GlobalHelper::formatRupiah($listOrder->product->price) }}
                                                         </p>

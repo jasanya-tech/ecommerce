@@ -37,7 +37,7 @@ class Order extends Model
             }
         })->when($filters['search'] ?? false, function ($query, $search) {
             $query->where(function ($query) use ($search) {
-                $query->where('name', 'like', '%' . $search . '%');
+                $query->where('invoice', 'like', '%' . $search . '%')->orWhere('no_resi', 'like', '%' . $search . '%');
             });
         })->when(
             $filters['sort_option'] ?? false,

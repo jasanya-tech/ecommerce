@@ -18,7 +18,7 @@ class ExportController extends Controller
         } else {
             ini_set('max_execution_time', 600);
             $pdf = FacadePdf::loadView('admin.exports.transaction', [
-                'users' => $orders = Order::orderBy('id', 'DESC')->where('status', '!=', 'Silahkan Lakukan Pembayaran')->filter(request(['search', 'status_filter', 'sort_option']))->get(),
+                'orders' =>  Order::orderBy('id', 'DESC')->where('status', '!=', 'Silahkan Lakukan Pembayaran')->filter(request(['search', 'status_filter', 'sort_option']))->get(),
             ])->setPaper('a1', 'landscape');
             return $pdf->download('transaction-report.pdf');
         }

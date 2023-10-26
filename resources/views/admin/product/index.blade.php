@@ -90,59 +90,6 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                {{-- <div class="form-group">
-                                                    <label for="orderBy">Order By:</label>
-                                                    <div class="input-group">
-                                                        <button type="button" class="btn btn-primary" id="orderButton"
-                                                            data-toggle="collapse" data-target="#orderOptions">
-                                                            Order By
-                                                        </button>
-                                                        <div id="orderOptions" class="collapse">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="name_asc"
-                                                                    @if (request()->sort_option == 'name_asc') checked @endif>
-                                                                <label class="form-check-label" for="sort_name_asc">    Name (asc)</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="name_desc"
-                                                                    @if (request()->sort_option == 'name_desc') checked @endif>
-                                                                <label class="form-check-label" for="sort_name_desc">Sort
-                                                                    by Name (desc)</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="price_asc"
-                                                                    @if (request()->sort_option == 'price_asc') checked @endif>
-                                                                <label class="form-check-label" for="sort_price_asc">Sort by
-                                                                    Price (asc)</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="price_desc"
-                                                                    @if (request()->sort_option == 'price_desc') checked @endif>
-                                                                <label class="form-check-label" for="sort_price_desc">Sort
-                                                                    by Price (desc)</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="stock_asc"
-                                                                    @if (request()->sort_option == 'stock_asc') checked @endif>
-                                                                <label class="form-check-label" for="sort_stock_asc">Sort
-                                                                    by
-                                                                    Stock (asc)</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="sort_option" value="stock_desc"
-                                                                    @if (request()->sort_option == 'stock_desc') checked @endif>
-                                                                <label class="form-check-label" for="sort_stock_desc">Sort
-                                                                    by Stock (desc)</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
                                                 <div class="d-flex justify-content-left">
                                                     <button type="submit" class="btn btn-primary m-1" id="apply-button">
                                                         Apply

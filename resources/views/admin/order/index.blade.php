@@ -68,6 +68,16 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label for="search">Search:</label>
+                                                    <div class="input-group">
+                                                        <input type="text" id="search" name="search"
+                                                            value="{{ request()->search }}" class="form-control"
+                                                            placeholder="Search...">
+                                                        <div class="input-group-append">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
                                                     <label for="sort">Sort by:</label>
                                                     <div class="input-group">
                                                         <select id="sort" class="custom-select" name="sort_option">

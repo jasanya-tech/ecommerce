@@ -24,18 +24,12 @@ class TransactionExport implements FromView, WithColumnWidths
     {
         return [
             'A' => 8,
-            'B' => 28,
-            'C' => 16,
-            'D' => 16,
-            'E' => 30,
+            'B' => 35,
+            'C' => 35,
+            'D' => 25,
+            'E' => 25,
             'F' => 14,
-            'G' => 15,
-            'H' => 15,
-            'I' => 15,
-            'J' => 15,
-            'K' => 27,
-            'L' => 19,
-            'M' => 20,
+            'G' => 25,
         ];
     }
 }

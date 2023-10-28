@@ -4,48 +4,11 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
         <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-            <h1>Your New Online Presence with Bethany</h1>
-            <h2>We are team of talented designers making websites with Bootstrap</h2>
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
         </div>
     </section><!-- End Hero -->
 
     <main id="main">
-
-        <!-- ======= Clients Section ======= -->
-        <section id="clients" class="clients">
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="/assets/customer/img/clients/client-1.png" class="img-fluid" alt="">
-                    </div>
-
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="200">
-                        <img src="/assets/customer/img/clients/client-2.png" class="img-fluid" alt="">
-                    </div>
-
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="300">
-                        <img src="/assets/customer/img/clients/client-3.png" class="img-fluid" alt="">
-                    </div>
-
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="400">
-                        <img src="/assets/customer/img/clients/client-4.png" class="img-fluid" alt="">
-                    </div>
-
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="500">
-                        <img src="/assets/customer/img/clients/client-5.png" class="img-fluid" alt="">
-                    </div>
-
-                    <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="600">
-                        <img src="/assets/customer/img/clients/client-6.png" class="img-fluid" alt="">
-                    </div>
-
-                </div>
-
-            </div>
-        </section><!-- End Clients Section -->
 
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
@@ -53,30 +16,30 @@
 
                 <div class="row content">
                     <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                        <h2>Eum ipsam laborum deleniti velitena</h2>
-                        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave
-                        </h3>
+                        <h2>Tentang Kami</h2>
+                        <h3>Selamat datang di {{ env('APP_COMPANY') }}</h3>
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
                         <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                            in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum
+                            Kami adalah tujuan terbaik untuk semua kebutuhan furnitur Anda. Di {{ env('APP_COMPANY') }},
+                            kami
+                            memahami betapa pentingnya furnitur dalam menciptakan suasana yang nyaman dan indah di rumah
+                            Anda. Itulah mengapa kami berkomitmen untuk menyediakan koleksi furnitur berkualitas tinggi
+                            dengan berbagai gaya, desain, dan harga yang sesuai dengan berbagai kebutuhan dan anggaran.
                         </p>
                         <ul>
-                            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequa
+                            <li><i class="ri-check-double-line"></i> Koleksi Luas, Kami menawarkan beragam pilihan furnitur,
+                                mulai dari sofa, meja, kursi, lemari, tempat tidur, hingga dekorasi rumah
                             </li>
-                            <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate
-                                velit</li>
-                            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in</li>
+                            <li><i class="ri-check-double-line"></i>Kualitas Terbaik, Kami hanya bekerja dengan produsen
+                                furnitur terkemuka yang mengutamakan kualitas</li>
+                            <li><i class="ri-check-double-line"></i> Harga Terjangkau, Kami tahu bahwa anggaran adalah
+                                pertimbangan utama dalam setiap pembelian</li>
                         </ul>
                         <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
+                            Terima kasih telah memilih {{ env('APP_COMPANY') }} sebagai destinasi furnitur Anda. Kami
+                            berharap
+                            dapat membantu Anda mengubah rumah Anda menjadi tempat yang Anda impikan
                         </p>
                     </div>
                 </div>
@@ -90,28 +53,16 @@
 
                 <div class="row counters">
 
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Clients</p>
+                    <div class="col-lg-6 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $countCategory }}"
+                            data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Category</p>
                     </div>
 
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Projects</p>
-                    </div>
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Hours Of Support</p>
-                    </div>
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Hard Workers</p>
+                    <div class="col-lg-6 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $countProduct }}"
+                            data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Product</p>
                     </div>
 
                 </div>
@@ -119,7 +70,7 @@
             </div>
         </section><!-- End Counts Section -->
 
-        <!-- ======= Why Us Section ======= -->
+        {{-- <!-- ======= Why Us Section ======= -->
         <section id="why-us" class="why-us">
             <div class="container">
 
@@ -168,7 +119,7 @@
                 </div>
 
             </div>
-        </section><!-- End Why Us Section -->
+        </section><!-- End Why Us Section --> --}}
 
         <section id="products" class="portfolio">
             <div class="container">
@@ -222,36 +173,37 @@
                     <div class="col-lg-4" data-aos="fade-right">
                         <div class="section-title">
                             <h2>Contact</h2>
-                            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga
-                                eum quidem.
-                                Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui
-                                impedit suscipit
-                                alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                            <p>Selamat datang di halaman kontak kami. Kami sangat senang mendengar dari Anda. Gunakan
+                                informasi kontak di bawah ini untuk menghubungi kami, memberikan umpan balik, atau
+                                mengajukan
+                                pertanyaan. Tim kami siap untuk membantu Anda dengan permintaan Anda. Jangan ragu untuk
+                                menghubungi kami, dan kami akan merespons secepat mungkin. Terima kasih atas kunjungan Anda!
+                            </p>
                         </div>
                     </div>
 
                     <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
                         <iframe style="border:0; width: 100%; height: 270px;"
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.3527724123894!2d106.73053351431124!3d-6.139060411097965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7edca42a809%3A0xf7721d9e6310e565!2sKecamatan%20Cengkareng%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sen!2sid!4v1669436057778!5m2!1sen!2sid"
                             frameborder="0" allowfullscreen></iframe>
                         <div class="info mt-4">
                             <i class="bi bi-geo-alt"></i>
                             <h4>Location:</h4>
-                            <p>A108 Adam Street, New York, NY 535022</p>
+                            <p>Cengkareng, Jakarta Barat Indonesia</p>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 mt-4">
                                 <div class="info">
                                     <i class="bi bi-envelope"></i>
                                     <h4>Email:</h4>
-                                    <p>info@example.com</p>
+                                    <p>zaqiasyifa@gmail.com</p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="info w-100 mt-4">
                                     <i class="bi bi-phone"></i>
                                     <h4>Call:</h4>
-                                    <p>+1 5589 55488 55s</p>
+                                    <p>+62 895 3220 21652</p>
                                 </div>
                             </div>
                         </div>

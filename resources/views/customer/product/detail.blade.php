@@ -45,6 +45,7 @@
                             <h3>Product information</h3>
                             <ul>
                                 <li><strong>Category</strong>: {{ $product->category->name }}</li>
+                                <li><strong>Name</strong>: {{ $product->name }}</li>
                                 <li><strong>Price</strong>: {{ GlobalHelper::formatRupiah($product->price) }}</li>
                                 <li><strong>Stock</strong>: {{ $product->stock }} pcs</li>
                             </ul>

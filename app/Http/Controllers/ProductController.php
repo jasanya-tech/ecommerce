@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::latest()->filter(request(['search', 'stock_filter', 'sort_option']))->paginate(10);
+        $products = Product::latest()->filter(request(['search', 'stock_filter', 'sort_option']))->get();
         $categories = Category::all();
         return view('customer.product.index', [
             'title' => 'product',

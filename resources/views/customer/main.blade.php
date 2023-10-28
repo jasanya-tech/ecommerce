@@ -38,6 +38,11 @@
   ======================================================== -->
 
     <style>
+        .dropdown ul {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
         .quantity-input {
             display: flex;
             align-items: center;

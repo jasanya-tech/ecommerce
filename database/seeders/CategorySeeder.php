@@ -17,16 +17,58 @@ class CategorySeeder extends Seeder
     {
         $category = [
             [
-                'name' => 'category1',
+                'name' => 'BUFET',
             ],
             [
-                'name' => 'category2',
+                'name' => 'DIVAN / TEMPAT TIDUR',
             ],
             [
-                'name' => 'category3',
+                'name' => 'KABINET DAPUR',
             ],
             [
-                'name' => 'category4',
+                'name' => 'KURSI',
+            ],
+            [
+                'name' => 'LEMARI LACI',
+            ],
+            [
+                'name' => 'LEMARI PAKAIAN',
+            ],
+            [
+                'name' => 'LEMARI PAKAIAN MODULAR',
+            ],
+            [
+                'name' => 'MEJA BELAJAR / KERJA',
+            ],
+            [
+                'name' => 'MEJA MAKAN',
+            ],
+            [
+                'name' => 'MEJA RIAS',
+            ],
+            [
+                'name' => 'MEJA SAMPING / NAKAS',
+            ],
+            [
+                'name' => 'MEJA TAMU',
+            ],
+            [
+                'name' => 'MEJA TV / RAK TV',
+            ],
+            [
+                'name' => 'RAK BUKU / LEMARI PAJANGAN',
+            ],
+            [
+                'name' => 'RAK BUKU / LEMARI PAJANGAN',
+            ],
+            [
+                'name' => 'RAK SEPATU / LEMARI SEPATU',
+            ],
+            [
+                'name' => 'SOFA',
+            ],
+            [
+                'name' => 'SOFABED',
             ],
         ];
 
